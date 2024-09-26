@@ -1,0 +1,724 @@
+:coro: {counter: cor: 0}
+== A Fórmula do Número de Algarismos no Falso Período
+
+No seguinte teorema utilizaremos a noção do "maior inteiro". Se latexmath:[\large y
+=
+\left\lfloor
+x
+\right\rfloor], então se diz que "*_y é o menor inteiro que é maior ou igual que x_*".
+
+:the: {counter: th}
+[[th-6, {the} ]]
+****
+*_Teorema {the}_*:
+Seja latexmath:[\large P= \{ p_1,\dots,p_c,\dots,p_{\tau} \}] o conjunto dos fatores primos que pertencem à fatoração de latexmath:[\large b], latexmath:[\large r_0] ou latexmath:[\large n].
+
+Consideremos, para os objetivos deste teorema, que as suas fatorações tenham, cada uma, todos os elementos de latexmath:[\large P], ainda que com expoente nulo, de modo que possamos escrever latexmath:[\large b=\prod_{c=1}^{\tau}p_c^{e_{b,c}}], latexmath:[\large r_0=\prod_{c=1}^{\tau}p_c^{e_{r_0,c}}] e latexmath:[\large n=\prod_{c=1}^{\tau}p_c^{e_{n,c}}].
+
+Então, o número de restos no falso período de latexmath:[\large s(b,r_0,n)] é
+
+// //:equ: {counter: eq}
+// //[[eq-th-6-1, {equ} ]]
+[latexmath#eq-th-6-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+\widetilde{\alpha}(b,r_0,n)
+=
+\begin{cases}
+0 & \text{ se\ \  mdc(b,n)=1}\\
+\max_c
+\left\lfloor
+\frac{e_{n,c}-e_{r_0,c}}{e_{b,c}}
+\right\rfloor
+& \text{ caso\ contrário }
+\end{cases}
+\end{equation}
+++++
+//({equ})
+
+*_Prova_*:
+De acordo com o Teorema <<th-1>>, todos os restos latexmath:[\large r_i\in s] podem ser calculados a partir de latexmath:[\large r_0] da seguinte forma
+
+// //:equ: {counter: eq}
+// //[[eq-th-6-2, {equ} ]]
+[latexmath#eq-th-6-2, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+r_i
+\equiv
+b^{i}
+\cdot
+r_0
+(mod\ \ n)
+\end{equation}
+++++
+//({equ})
+
+Então, para qualquer latexmath:[\large i] tem-se
+
+//:equ: {counter: eq}
+//[[eq-th-6-3, {equ} ]]
+[latexmath#eq-th-6-3, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+\begin{matrix}
+\frac{b^ir_0-r_i}{n}
+&=&
+\frac{(\prod_{c=1}^{\tau}p_c^{e_{b,c}})^i
+\prod_{c=1}^{\tau}p_c^{e_{r_0,c}}
+-r_i
+}
+{
+\prod_{c=1}^{\tau}p_c^{e_{n,c}}
+}\\
+&=&
+\frac{\prod_{c=1}^{\tau}p_c^{ie_{b,c}+e_{r_0,c}}
+-r_i
+}
+{
+\prod_{c=1}^{\tau}p_c^{e_{n,c}}
+}
+\in \mathbb{Z}
+\end{matrix}
+\end{equation}
+++++
+//({equ})
+
+Se latexmath:[\large br_0] e latexmath:[\large n] tiverem divisores comuns, então, podemos nos perguntar sobre o máximo divisor comum entre eles, o que, por definição, é
+
+//:equ: {counter: eq}
+//[[eq-th-6-4, {equ} ]]
+[latexmath#eq-th-6-4, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+mdc(br_0,n)=\prod_{c=1}^{\tau} p_c^{\min\{e_{b,c}+e_{r_0,c},e_{n,c}\}}
+\end{equation}
+++++
+//({equ})
+
+Do lado mais à direita de <<eq-th-6-3>> e do Teorema <<th-2>>, sabemos que latexmath:[\large \prod_{c=1}^{\tau} p_c^{\min\{e_{b,c}+e_{r_0,c},e_{n,c}\}}] em <<eq-th-6-4>> deve dividir latexmath:[\large r_i] em <<eq-th-6-3>>.
+
+Mas, o expoente presente em <<eq-th-6-4>> corresponde ao expoente no numerador do membro mais à direita de <<eq-th-6-3>>, *_quando latexmath:[\large i=1]_*.
+
+O importante a percebermos, agora, é que, enquanto latexmath:[\large i] for tal que
+
+//:equ: {counter: eq}
+//[[eq-th-6-5, {equ} ]]
+[latexmath#eq-th-6-5, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+i\cdot e_{b,c}+e_{r_0,c}=\min\{i\cdot e_{b,c}+e_{r_0,c},e_{n,c}\}
+\end{equation}
+++++
+//({equ})
+
+teremos que ter
+
+//:equ: {counter: eq}
+//[[eq-th-6-6, {equ} ]]
+[latexmath#eq-th-6-6, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+\begin{matrix}
+mdc(b^i r_0,n)&=&\prod_{c\in P} p_c^{\min\{i\cdot e_{b,c}+e_{r_0,c},e_{n,c}\}}\\
+&=&\prod_{c\in P} p_c^{i\cdot e_{b,c}+e_{r_0,c}}
+\end{matrix}
+\end{equation}
+++++
+//({equ})
+
+visto que latexmath:[\large e_{b,c}], latexmath:[\large e_{r_0,c}] e latexmath:[\large e_{n,c}] são todos expoentes, não nulos, de um mesmo fator primo que está presente em latexmath:[\large br_0] e latexmath:[\large n].
+
+Entretanto, é preciso perceber que latexmath:[\large i], em <<eq-th-6-2>>, cresce ilimitadamente, mas que
+
+//:equ: {counter: eq}
+//[[eq-th-6-7, {equ} ]]
+[latexmath#eq-th-6-7, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+\prod_{c\in P}p_c^{i\cdot e_{b,c}+e_{r_0,c}}\ \ \nmid\ \ r_i
+\end{equation}
+++++
+//({equ})
+
+para todo latexmath:[\large i], já que latexmath:[\large r_i\in\{0,\dots,n-1\}], pois latexmath:[\large \prod_{c\in P}p_c^{i\cdot e_{b,c}+e_{r_0,c}}] ficará, eventualmente, bem maior que latexmath:[\large r_i]. Perceba que, quando latexmath:[\large i] é tal que <<eq-th-6-7>> começa a valer, então, o lado direito de <<eq-th-6-3>> deixa de pertencer a latexmath:[\large \mathbb{Z}], visto que, se valesse, o seu denominador teria fatores comuns com apenas uma das parcelas do numerador.
+
+Então, cabe agora perguntar para qual latexmath:[\large i] começa a valer <<eq-th-6-7>>, pois, a partir dele, de acordo com <<eq-th-6-4>>, deve começar a valer
+
+//:equ: {counter: eq}
+//[[eq-th-6-8, {equ} ]]
+[latexmath#eq-th-6-8, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+mdc(b^i r_0,n)=\prod_{c\in P} p_c^{e_{n,c}}
+\end{equation}
+++++
+//({equ})
+
+Em qualquer caso, o maior latexmath:[\large i], chamemo-lo de latexmath:[\large \tilde{i}], que ainda torna <<eq-th-6-4>> verdadeira, satisfaz também a seguinte inequação
+
+//:equ: {counter: eq}
+//[[eq-th-6-9, {equ} ]]
+[latexmath#eq-th-6-9, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+\tilde{i}\cdot e_{b,c}+e_{r_0,c}\ge e_{n,c}
+\end{equation}
+++++
+//({equ})
+
+É preciso perceber que há latexmath:[\large \tau] inequações em <<eq-th-6-9>>, que se resolvem para algum latexmath:[\large i], e que, portanto, o latexmath:[\large \tilde{i}] desejado é aquele para o qual há algum latexmath:[\large c] que satisfaça
+
+//:equ: {counter: eq}
+//[[eq-th-6-10, {equ} ]]
+[latexmath#eq-th-6-10, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+\widetilde{i}
+=
+\max_c
+\left\lfloor
+\frac{e_{n,c}-e_{r_0,c}}{e_{b,c}}
+\right\rfloor
+\end{equation}
+++++
+//({equ})
+
+Verifiquemos agora que o latexmath:[\large \widetilde{i}] é, de fato, o número de restos no falso período. Eu afirmo que ele é.
+
+O Teorema Fundamental afirma que a sequência latexmath:[\large s] pode ter um falso período. Suponhamos que o tenha.
+
+Seja
+
+//:equ: {counter: eq}
+//[[eq-th-6-20, {equ} ]]
+[latexmath#eq-th-6-20, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+s(b,r_0,n)=\{r_0,...,r_{\widetilde{i}},r_{\widetilde{i}+1},...,r_{\widetilde{i}+\alpha},...\}
+\end{equation}
+++++
+//({equ})
+
+em que latexmath:[\large r_0,...,r_{\widetilde{i}},r_{\widetilde{i} + 1},...,r_{\widetilde{i} + \alpha}] é a sequência composta por um suposto falso período seguido da primeira ocorrência do período verdadeiro.
+
+Deixe latexmath:[\large i] variar entre latexmath:[\large 0] e latexmath:[\large {\widetilde{i} + \alpha}]. Veja que se latexmath:[\large i \leq \widetilde{i}], então, vale <<eq-th-6-6>> com o lado esquerdo de <<eq-th-6-5>>, ou seja, latexmath:[\large mdc(b^i r_0,n)] varia com latexmath:[\large i], o que é o mesmo que dizer que quanto maior for o latexmath:[\large i], maior será latexmath:[\large mdc(b^i r_0,n)].
+
+Por outro lado, se latexmath:[\large i \geq \widetilde{i} + 1], então vale <<eq-th-6-8>>. Neste caso, latexmath:[\large mdc(b^i r_0,n)] é fixo, ou seja, todos os restos de latexmath:[\large s] a partir do resto latexmath:[\large {\widetilde{i}+1}] têm o mesmo latexmath:[\large mdc] com latexmath:[\large n]. Então, de acordo com o Teorema <<th-5>>, estes devem ser os restos do período verdadeiro.
+
+Logo, latexmath:[\large \widetilde{i}] conta o último resto do falso período e é, de fato, o número de restos neste falso período.
+
+Antes de finalizarmos esta prova, vejamos o que acontece quando latexmath:[\large e_{b,c}=0], já que ele se encontra no denominador de <<eq-th-6-10>>. Para isto, olhemos rapidamente para a equação <<eq-th-6-9>>. Nela, vemos que se latexmath:[\large e_{b,c}=0], o valor de latexmath:[\large \widetilde i] não tem qualquer influência sobre <<eq-th-6-9>>. Mas, vemos que se latexmath:[\large e_{b,c}=0], então, a base e o numerador não têm fatores em comum e latexmath:[\large mdc(b,n)=1]. Isto quer dizer que a variação de latexmath:[\large i] não produzirá restos cujo latexmath:[\large mdc] com latexmath:[\large n] seja variável, ou seja, todos os restos pertencem ao período verdadeiro. Logo, se latexmath:[\large e_{b,c}=0], então, o número de elementos no falso período é nulo também. Este é o primeiro caso de <<eq-th-6-1>>.
+
+Finalmente, já que o número de restos do falso período é uma função da base, do primeiro resto escolhido e de latexmath:[\large n], façamos latexmath:[\large {\widetilde{i}}=
+\widetilde{\alpha}(b,r_0,n)]. C.Q.D.
+****
+
+=== Algumas Consequências da Possibilidade de se Contar o Número de Elementos do Falso Período
+
+Deste Teorema <<th-6>> decorrem alguns resultados bem interessantes. O primeiro deles é o seguinte corolário.
+
+:coro: {counter: cor}
+[[co-1-6, {coro} ]]
+****
+*_Corolário {coro} do Teorema <<th-6>>_*:
+Se latexmath:[\large mdc(b,n)=1], então, latexmath:[\large s(b, r_0, n)] não tem um falso período.
+
+*_Prova_*:
+Se latexmath:[\large mdc(b,n)=1], então, todos os expoentes dos fatores primos de latexmath:[\large mdc(b,n)] são nulos. Isto quer dizer que não há fatores primos comuns entre latexmath:[\large n] e latexmath:[\large b]. Sendo assim, latexmath:[\large e_{b,c}] e latexmath:[\large e_{n,c}] devem ser nulos também. Logo, as latexmath:[\large \tau] equações em <<eq-th-6-9>> do Teorema <<th-6>> têm a forma
+
+//:equ: {counter: eq}
+//[[eq-co-1-6-1, {equ} ]]
+[latexmath#eq-co-1-6-1, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+\widetilde{i}\cdot 0 + e_{r_0,  c} \ge 0
+\end{equation}
+++++
+//({equ})
+
+que é satisfeita por qualquer latexmath:[\large \widetilde{i}] não negativo, sendo que o menor latexmath:[\large \widetilde{i}] não negativo que satisfaz esta inequação algo incomum é latexmath:[\large \widetilde{i}=0]. Isto é, se latexmath:[\large mdc(b,n)=1], então, latexmath:[\large s(b, r_0, n)] não tem um falso período. CQD.
+
+****
+
+Agora, vamos começar a reconhecer que subsequências infinitas de uma dada latexmath:[\large s(b,m,n)] também são sequências dos restos de alguma fração latexmath:[\large \frac{r_i}{n}] em que latexmath:[\large r_i\in s(b,m,n)] e latexmath:[\large r_i] é o resto zero de latexmath:[\large s(b,r_i,n)]. Veremos isto em grande detalhe no próximo livro, o qual tratará de latexmath:[\Large \alpha], o número de elementos do período verdadeiro.
+
+Por ora, vamos restringir estas observações aos termos do Teorema <<th-6>> e afirmarmos o seguinte corolário que reconhece que qualquer latexmath:[\large s] é a justaposição da sequência finita de um possível falso período e a sequência de infinitos períodos verdadeiros.
+
+:coro: {counter: cor}
+[[co-2-6, {coro} ]]
+****
+*_Corolário {coro} do Teorema <<th-6>>_*:
+Seja
+
+//:equ: {counter: eq}
+//[[eq-co-2-6-1, {equ} ]]
+[latexmath#eq-co-2-6-1, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+s(b,r_0,n)
+=
+(
+\{s_i\}_{i=0}^{\widetilde{i}}
+,
+s(b,r_{\widetilde{i}},n)
+)
+\end{equation}
+++++
+//({equ})
+
+Então, a subsequência latexmath:[\large s(b,r_{\widetilde{i}},n)] não tem um falso período.
+
+*_Prova_*:
+A equação <<eq-th-6-20>> do Teorema <<th-6>> equivale a <<eq-co-2-6-1>> deste Corolário e latexmath:[\large r_{\widetilde{i}}] faz o papel de latexmath:[\large r_0] em latexmath:[\large s(b,r_{\widetilde{i}},n)]. Vimos em <<eq-th-6-8>> do Teorema <<th-6>> que, quando latexmath:[\Large \widetilde{i}_c] cresce e se torna latexmath:[\Large \widetilde{\alpha}], então, a desigualdade latexmath:[\Large \widetilde{i}_c\cdot e_{b, c} + e_{r_0, c}\geq e_{n, c}] passa a valer e o mdc, abaixo, também passa a vigorar.
+
+[latexmath#eq-co-2-6-3, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+mdc(b^i r_0,n)=\prod_{c\in P} p_c^{e_{n,c}}
+\end{equation}
+++++
+//({equ})
+Mas, vimos que este é o caso em que os restos têm mdc fixo com latexmath:[\Large n] e que, portanto, só podem ser os restos do período verdadeiro. Como, para latexmath:[\large s(b,r_{\widetilde{i}},n)], este é o caso desde o resto inicial, latexmath:[\large r_{\widetilde{i}}], decorre, daí, que ela não tem um falso período.
+****
+
+// Se latexmath:[\large e_{r_0,c} \geq e_{n,c}], para todo latexmath:[\large c], então, as latexmath:[\large \tau] equações, em <<eq-th-6-9>>, do Teorema <<th-6>> podem ser escritas assim
+
+// //:equ: {counter: eq}
+// //[[eq-co-2-6-2, {equ} ]]
+// [latexmath#eq-co-2-6-2, reftext={counter: eq} ]
+// ++++
+// \large
+// \begin{equation}
+// \widetilde{i}_c
+// \cdot
+// e_{b, c}\geq e_{n, c}- e_{r_0, c}
+// \end{equation}
+// ++++
+// //({equ})
+
+// O lado direito de <<eq-co-2-6-2>> é negativo ou nulo. Logo, não importando o valor de latexmath:[\large e_{b,c}], o menor latexmath:[\large \widetilde{i}] não-negativo que satisfaz <<eq-co-2-6-2>> é, novamente, latexmath:[\large \widetilde{i}
+// =0]. Em outras palavras, neste caso, também não há falso período.
+
+// Agora, a equação <<eq-th-6-20>> do Teorema <<th-6>> equivale a <<eq-co-2-6-1>> deste Corolário e latexmath:[\large r_{\widetilde{i}}] faz o papel de latexmath:[\large r_0] em latexmath:[\large s(b,r_{\widetilde{i}},n)]. Vimos em <<eq-th-6-8>> do Teorema <<th-6>> que
+
+// //:equ: {counter: eq}
+// //[[eq-co-2-6-3, {equ} ]]
+// [latexmath#eq-co-2-6-3, reftext={counter: eq} ]
+// ++++
+// \large
+// \begin{equation}
+// mdc(b^i r_0,n)=\prod_{c\in P} p_c^{e_{n,c}}
+// \end{equation}
+// ++++
+// //({equ})
+
+// Se as potências primas do latexmath:[\large mdc] de latexmath:[\large r_{\widetilde{i}}] e latexmath:[\large n] são as potências de latexmath:[\large n], então, as potências primas de latexmath:[\large r_{\widetilde{i}}] são maiores ou iguais que as de latexmath:[\large n]. Logo, latexmath:[\large e_{r_{\widetilde{i}}, c} \geq e_{n,c}] e, por consequência, latexmath:[\large s(b,r_{\widetilde{i}},n)] não tem um falso período.
+
+// //Já havíamos chegado a este resultado invocando o Teorema <<th-5>> sobre os restos de latexmath:[s(b,r_{\widetilde{i}},n)].
+
+// ****
+
+No Teorema <<th-5>> vimos que os restos do período verdadeiro têm todos o mesmo latexmath:[\large mdc] com latexmath:[\large n]. No próximo corolário, veremos, mais de perto, de que modo o latexmath:[\large mdc] dos restos do período falso são variáveis. Há um crescimento, em magnitude, dos latexmath:[\large mdc]'s nos restos do período falso desde o primeiro até o último.
+
+:coro: {counter: cor}
+[[co-3-6, {coro} ]]
+****
+*_Corolário {coro} do Teorema <<th-6>>_*:
+Se latexmath:[\large j<i\le\widetilde{\alpha}], então,
+
+//:equ: {counter: eq}
+//[[eq-co-3-6-1, {equ} ]]
+[latexmath#eq-co-3-6-1, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+mdc(n,r_j)< mdc(n,r_i)
+\end{equation}
+++++
+//({equ})
+
+*_Prova_*:
+Se o falso período tiver um só elemento, não há como realizar a comparação em <<eq-co-3-6-1>>.
+
+Suponha, portanto, que latexmath:[\large \widetilde{\alpha}\ge 2].
+
+Então, da equação <<eq-th-6-3>>, sabemos que latexmath:[\large r_j] e latexmath:[\large r_i] partilham, respectivamente, do latexmath:[\large mdc] que latexmath:[\large b^j r_0] e latexmath:[\large b^i r_0] têm com latexmath:[\large n], ou seja, temos
+
+//:equ: {counter: eq}
+//[[eq-co-3-6-2, {equ} ]]
+[latexmath#eq-co-3-6-2, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+\begin{matrix}
+mdc(n,r_j)&=&\prod_{c=1}^{\tau}
+p_c^{min\{
+je_{b,c}+e_{r_0,c}
+,
+e_{n,c}
+\}
+}\\
+&=&\prod_{c=1}^{\tau}
+p_c^{je_{b,c}+e_{r_0,c}}
+\end{matrix}
+\end{equation}
+++++
+//({equ})
+
+e
+
+//:equ: {counter: eq}
+//[[eq-co-3-6-3, {equ} ]]
+[latexmath#eq-co-3-6-3, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+\begin{matrix}
+mdc(n,r_i)&=&\prod_{c=1}^{\tau}
+p_c^{min\{
+ie_{b,c}+e_{r_0,c}
+,
+e_{n,c}
+\}
+}\\
+&=&\prod_{c=1}^{\tau}
+p_c^{ie_{b,c}+e_{r_0,c}}
+\end{matrix}
+\end{equation}
+++++
+//({equ})
+
+Deste modo, como latexmath:[\large j<i] para as mesmas potências primas, teremos que ter
+
+//:equ: {counter: eq}
+//[[eq-co-3-6-4, {equ} ]]
+[latexmath#eq-co-3-6-4, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+\frac{mdc(n,r_i)}{mdc(n,r_j)}=\prod_{alguns\ \ c's}^{ }p_c^{(i-j)e_{b,c}}>1
+\end{equation}
+++++
+//({equ})
+
+ou seja, a inequação em <<eq-co-3-6-1>> é verdadeira, C.Q.D.
+****
+
+
+Agora, o próximo corolário mostra que o latexmath:[\large mdc] fixo que os restos do período verdadeiro têm com o denominador latexmath:[\large n] é igual ao tido, com o mesmo latexmath:[\large n], pelo último resto do período falso, latexmath:[\large r_{\widetilde{\alpha}}].
+
+:coro: {counter: cor}
+[[co-4-6, {coro} ]]
+****
+*_Corolário {coro} do Teorema <<th-6>>_*:
+
+//:equ: {counter: eq}
+//[[eq-co-4-6-1, {equ} ]]
+[latexmath#eq-co-4-6-1, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+\widetilde{\alpha}
+\le
+i
+\Longrightarrow
+mdc(n,r_{\widetilde{\alpha}})
+=
+mdc(n,r_i)
+\end{equation}
+++++
+//({equ})
+
+*_Prova_*:
+Havendo um falso período, enquanto latexmath:[\large i\le\widetilde{\alpha}], o
+
+//:equ: {counter: eq}
+//[[eq-co-4-6-2, {equ} ]]
+[latexmath#eq-co-4-6-2, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+mdc(n,r_i)=\prod_{c=1}^{\tau}
+p_c^{min\{
+ie_{b,c}+e_{r_0,c}
+,
+e_{n,c}
+\}
+}
+\end{equation}
+++++
+//({equ})
+
+de acordo com a equação <<eq-co-3-6-2>> ou <<eq-co-3-6-3>> do corolário <<co-3-6>> deste teorema.
+
+Isto quer dizer que
+
+//:equ: {counter: eq}
+//[[eq-co-4-6-3, {equ} ]]
+[latexmath#eq-co-4-6-3, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+mdc(n,r_{\widetilde{\alpha}})=\prod_{c=1}^{\tau}
+p_c^{min\{
+\widetilde{\alpha}e_{b,c}+e_{r_0,c}
+,
+e_{n,c}
+\}
+}
+\end{equation}
+++++
+//({equ})
+
+O ponto latexmath:[\large i=\widetilde{\alpha}] é o ponto em que <<eq-th-6-5>> deixa de valer e em que passa a valer latexmath:[\large \widetilde{\alpha}e_{b,c}+e_{r_0,c}
+\ge e_{n,c}], o que corresponde à equação <<eq-th-6-9>> do Teorema <<th-6>>. Aprecie o fato de que latexmath:[\Large r_{\widetilde{\alpha}}] é o "_resto zero_" da sequência de restos do período verdadeiro.
+
+Logo, se latexmath:[\widetilde{\alpha}
+\le
+i
+], o expoente em <<eq-co-4-6-3>> torna-se fixo, latexmath:[\large e_{n,c}], e <<eq-co-4-6-3>> se torna constante também, isto é,
+
+//:equ: {counter: eq}
+//[[eq-co-4-6-4, {equ} ]]
+[latexmath#eq-co-4-6-4, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+mdc(n,r_i)=\prod_{c=1}^{\tau}p_c^{e_{n,c}}
+\end{equation}
+++++
+//({equ})
+
+C.Q.D.
+****
+
+
+A seguinte consequência do Teorema <<th-6>> é muito mais um jeito bem indireto de enfatizar que se alguma sequência de restos tem um falso período, então, não é possível que os restos deste falso período tenham latexmath:[\large mdc] unitário com latexmath:[\large n], do que um resultado mais útil. O latexmath:[\large mdc] unitário, neste caso, significaria que a tal sequência não tem um falso período.
+
+Dito de outro modo, se supusermos, contraditoriamente, que uma sequência de restos, em que o último resto do período falso tivesse latexmath:[\large mdc] unitário com latexmath:[\large n], então, tal sequência não teria qualquer resto no período falso.
+
+:coro: {counter: cor}
+[[co-5-6, {coro} ]]
+****
+*_Corolário {coro} do Teorema <<th-6>>_*:
+Seja
+
+//:equ: {counter: eq}
+//[[eq-co-5-6-1, {equ} ]]
+[latexmath#eq-co-5-6-1, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+s(b,r,n)
+=
+(
+\{r_j\}_{j=0}^{\widetilde{\alpha}}
+,
+s_1(b,r_{\widetilde{\alpha}},n)
+)
+\end{equation}
+++++
+//({equ})
+
+Então,
+
+//:equ: {counter: eq}
+//[[eq-co-5-6-2, {equ} ]]
+[latexmath#eq-co-5-6-2, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+mdc(n,r_{\widetilde{\alpha}})=1
+\Longrightarrow
+\widetilde{\alpha}=0
+\ \ e\ \ 
+mdc(n,b)=1
+\end{equation}
+++++
+//({equ})
+
+*_Prova_*:
+latexmath:[\large \widetilde{\alpha}=0] significa que latexmath:[\large s] não tem falso período (Neste caso, latexmath:[\large r_0] figurará também como o último elemento do período verdadeiro).
+
+
+Dos corolários <<co-3-6>> e <<co-4-6>> deste Teorema, conclui-se que se latexmath:[\large j\le\widetilde{\alpha}<i], então,
+
+//:equ: {counter: eq}
+//[[eq-co-5-6-3, {equ} ]]
+[latexmath#eq-co-5-6-3, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+mdc(n,r_j)\le mdc(n,r_{\widetilde{\alpha}})
+=
+mdc(n,r_i)
+\end{equation}
+++++
+//({equ})
+
+Agora, em virtude da hipótese em <<eq-co-5-6-2>>, obtemos
+
+//:equ: {counter: eq}
+//[[eq-co-5-6-4, {equ} ]]
+[latexmath#eq-co-5-6-4, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+mdc(n,r_j)\le mdc(n,r_{\widetilde{\alpha}})
+=
+1
+\end{equation}
+++++
+//({equ})
+
+De <<eq-co-5-6-4>> se conclui que se latexmath:[\large j\le\widetilde{\alpha}], então, deve-se ter
+
+//:equ: {counter: eq}
+//[[eq-co-5-6-5, {equ} ]]
+[latexmath#eq-co-5-6-5, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+mdc(n,r_j)=1
+\end{equation}
+++++
+//({equ})
+
+ou seja, os restos do período falso têm latexmath:[\large mdc] unitário com latexmath:[\large n].
+
+Então, da equação <<eq-th-6-6>> do Teorema <<th-6>> temos
+
+//:equ: {counter: eq}
+//[[eq-co-5-6-6, {equ} ]]
+[latexmath#eq-co-5-6-6, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+mdc(n,r_j)=\prod_{c=1}^{\tau}
+p_c^{min\{
+je_{b,c}+e_{r_0,c}
+,
+e_{n,c}
+\}
+}
+=
+1
+\end{equation}
+++++
+//({equ})
+
+De <<eq-co-5-6-6>>, temos que concluir que, para todo latexmath:[\large c], ou
+
+//:equ: {counter: eq}
+//[[eq-co-5-6-7, {equ} ]]
+[latexmath#eq-co-5-6-7, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+je_{b,c}+e_{r_0,c}=0
+\end{equation}
+++++
+//({equ})
+
+ou
+
+//:equ: {counter: eq}
+//[[eq-co-5-6-8, {equ} ]]
+[latexmath#eq-co-5-6-8, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+e_{n,c}=0
+\end{equation}
+++++
+//({equ})
+
+ou ambos.
+
+Se <<eq-co-5-6-7>> valer, temos que ter 
+
+//:equ: {counter: eq}
+//[[eq-co-5-6-9, {equ} ]]
+[latexmath#eq-co-5-6-9, reftext={counter: eq} ]
+++++
+\large
+\begin{equation}
+e_{b,c}=e_{r_0,c}=0
+\end{equation}
+++++
+//({equ})
+
+já que nenhum destes expoentes é negativo.
+
+Se latexmath:[\large e_{b,c}=0] para todo latexmath:[\large c], então, os fatores comuns que figurariam no latexmath:[\large mdc(b,n)] são todos unitários. Deste modo, caímos na hipótese do Corolário <<co-1-6>>, da qual vem a tese deste. CQD.
+****
+
+
+Finalmente, o corolário a seguir é um reflexo de que a existência e tamanho de um falso período dependem primeiramente da relação entre os fatores primos da base, latexmath:[\large b], e os do denominador, latexmath:[\large n].
+
+Ele também dá uma das primeiras dicas indiretas ou levanta as primeiras suspeitas de que é possível fazer operações do tipo latexmath:[\large r\cdot s(b,1,n)=s(b,r,n)]. Começaremos a ver algo disto no próximo livro.
+
+:coro: {counter: cor}
+[[co-6-6, {coro} ]]
+****
+*_Corolário {coro} do Teorema <<th-6>>_*:
+Se latexmath:[\large s(b,1,n)] não tem um falso período, então, latexmath:[\large s(b,r,n)] também não tem, seja qual for o latexmath:[\large r].
+
+*_Prova_*:
+Seja qual for o latexmath:[\large r] escolhido, de acordo com a equação <<eq-th-6-1>> do Teorema <<th-6>>, um latexmath:[\large r > 1] contribuiria para diminuir o valor da função “maior inteiro” não negativo, pois o expoente respectivo diminui o numerador, em virtude do seu sinal negativo.
+
+Assim, o falso período de latexmath:[\large s(b,r,n)] não pode ser maior que o falso período de latexmath:[\large s(b,1,n)]. C.Q.D.
+****
+
+// === Exercícios
+
+// . Utilize expressões numéricas adequadas nos campos *Numerador* (que, neste caso, é latexmath:[\large r_0]), *Denominador* e *Base*, abaixo, para testar a afirmação do Teorema <<th-6>>. Para facilitar os testes, deixei à mão, logo abaixo, a lista dos primeiros 200 números primos abaixo.
+// .. *Exemplo*: Digamos que lidemos com os valores com as seguintes fatorações primas: latexmath:[\large r_0=2^2\cdot 3^3\cdot 5^5] (no campo do numerador, utilize a expressão: 2^2 * 3^3 * 5^5), latexmath:[\large n=3^9\cdot 5^5] (3^9 * 5^5) e , latexmath:[\large b=3^2\cdot 5^5\cdot 7^7] (3^2 * 5^5 * 7^7). Assim, o latexmath:[\large mdc(b,n)=3^2\cdot 5^5]. Deste modo, a potência prima contida no latexmath:[\large mdc(b,n)] que aparece também em latexmath:[\large n] e latexmath:[\large r_0] com a maior diferença entre os expoentes respectivos é latexmath:[\large 3^2] que, em latexmath:[\large n], latexmath:[\large r_0] e latexmath:[\large b], aparecem com os expoentes latexmath:[\large 9], latexmath:[\large 3] e latexmath:[\large 2], respectivamente. Então, de acordo com o Teorema <<th-6>>, o valor de latexmath:[\large \tilde{\alpha}(b,r_0,n)] (alfa-til) deverá ser latexmath:[\left \lfloor
+// \frac{9-3}{2}
+// \right \rfloor=3]. Convido o leitor a apreciar o fato de que o número latexmath:[\large 3] recém obtido, foi numericamente calculado, _mas_ que os resultados automáticos obtidos abaixo, são resultado de trabalho computacional realizado sob os ditames do Teorema <<th-6>> e que, por esta causa, estes resultados computacionais são uma maravilhosa confirmação da teoria que apresentamos até aqui!
+
+// . Tome primos da lista abaixo ou produtos entre eles para formar latexmath:[\large b], latexmath:[\large r_0] e latexmath:[\large n] de modo que latexmath:[\large mdc(b,n)=1] e verifique se estes exemplos obedecem ao Corolário <<co-1-6>>.
+
+// . Agora que você já sabe que se latexmath:[\large mdc(b,n)>1], aí, latexmath:[\large s(b,r_0,n)] terá um falso período, teste, com alguns exemplos, a validade do Corolário <<co-2-6>>. Use a lista de números primos abaixo para compor números latexmath:[\large b], latexmath:[\large r_0] e latexmath:[\large n] e usar os campos de geração automática de modo a mostrar que latexmath:[\large s_1(b,r_{\tilde{\alpha}},n)\subset s] não tem um falso período. Este fato estará evidente nos restos computados de latexmath:[\large s]. Mas, você ainda poderá identificar visualmente o latexmath:[\large r_{\tilde{\alpha}}] para, então, calcular latexmath:[\large s_1] diretamente (não como uma subsequência de latexmath:[\large s]).
+
+// . Com base em tudo o que vimos nesta Seção, sugira quaisquer 3 triplas (latexmath:[\large b], latexmath:[\large r], latexmath:[\large n]) que satisfaça o Corolário <<co-6-6>>.
+
+
+
+// *Lista dos primeiros 200 números primos*:
+// 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71
+// 73 79 83 89 97 101 103 107 109 113 127 131 137 139 149 151 157 163 167 173
+// 179 181 191 193 197 199 211 223 227 229 233 239 241 251 257 263 269 271 277 281
+// 283 293 307 311 313 317 331 337 347 349 353 359 367 373 379 383 389 397 401 409
+// 419 421 431 433 439 443 449 457 461 463 467 479 487 491 499 503 509 521 523 541
+// 547	557	563	569	571	577	587	593	599	601	607	613	617	619	631	641	643	647	653	659
+// 661	673	677	683	691	701	709	719	727	733	739	743	751	757	761	769	773	787	797	809
+// 811	821	823	827	829	839	853	857	859	863	877	881	883	887	907	911	919	929	937	941
+// 947	953	967	971	977	983	991	997	1009 1013 1019 1021 1031 1033 1039 1049 1051 1061 1063 1069 1087 1091 1093 1097 1103 1109 1117 1123 1129 1151 1153 1163 1171 1181 1187 1193 1201 1213 1217 1223
+
+
+// ++++
+// Numerador: <input class="numerador" type="text" name="quantidade" min="1" required>
+// <br>
+// Denominador: <input class="denominador" type="text" name="quantidade" min="1" required>
+// <br>
+// Base: <input class="base" type="text" name="quantidade" value="10" min="1" required>
+// <br>
+// <button class="calcular">Calcular</button>
+// <div class="result"></div>
+// ++++

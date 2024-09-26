@@ -1,0 +1,258 @@
+== Conhecendo Um Pouco Melhor os Restos
+
+Precisamos começar a conhecer melhor quem são os restos, latexmath:[\large r_i], na divisão de latexmath:[\large m] por latexmath:[\large n]. Para isto, podemos nos perguntar quem são os fatores que dividem, ao mesmo tempo, a cada um dos restos de latexmath:[\large s(b,m,n)].
+
+Os quatro teoremas seguintes são uma ajuda importante nesta tarefa.
+
+Para começar, o próximo Teorema <<th-2>>, abaixo, nos diz que há uma relação interessante entre qualquer latexmath:[\large r_i] e o produto latexmath:[\large b\cdot r_0], que envolve o resto inicial de latexmath:[\large s(b,m,n)]. Esta relação envolve o conceito de máximo divisor comum, ou latexmath:[\large mdc], entre a quantidade latexmath:[\large b\cdot r_0] e o denominador, latexmath:[\large n], da divisão. Este divisor comum, ele próprio, pode ter alguns de seus fatores em latexmath:[\large b] e outros em latexmath:[\large r_0]. Note que frisamos eta possibilidade no argumento do latexmath:[\large mdc] que consta da hipótese do teorema.
+
+Nós ainda refinaremos muito mais o conhecimento sobre a composição interna dos restos, mas, por ora, vamos apreender o seguinte fato bem básico.
+
+:the: {counter: th}
+[[th-2, {the} ]]
+****
+*_Teorema {the}_*:
+Seja latexmath:[\large s =\{r_i\}_{i=1}^{\infty}] e seja latexmath:[\large mdc(b\cdot r_0,n)=d], então, para todo latexmath:[\large i>0],
+
+// :equ: {counter: eq}
+// [[eq-th-2-proposition, {equ} ]]
+[latexmath#eq-th-2-proposition, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+d |r_i
+\end{equation}
+++++
+// ({equ})
+
+*_Prova_*:
+O elemento latexmath:[\large i] de latexmath:[\large s], módulo latexmath:[\large n], é
+
+// :equ: {counter: eq}
+// [[eq-th-2-1, {equ} ]]
+[latexmath#eq-th-2-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+s_i= r_i\equiv b^{i}\cdot r_0
+\end{equation}
+++++
+// ({equ})
+
+Daí, vem que
+
+// :equ: {counter: eq}
+// [[eq-th-2-2, {equ} ]]
+[latexmath#eq-th-2-2, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+\begin{matrix}
+n |(b^{i}\cdot r_0-r_i)\ \ \Longrightarrow\ \  d |(b^{i}\cdot r_0-r_i)\ \ \Longrightarrow\ \ 
+\newline
+\Longrightarrow\ \ 
+\frac{(b^{i}\cdot r_0-r_i)}{d}=m\in\mathbb{Z}
+\ \ \Longrightarrow
+\newline
+\Longrightarrow\ \ 
+b^{i}\cdot r_0-dm=r_i
+\ \ \Longrightarrow\ \ d | r_i
+\end{matrix}
+\end{equation}
+++++
+// ({equ})
+
+Como queríamos demonstrar.
+****
+
+Mas, podemos restringir a nossa hipótese apenas à possibilidade que envolve latexmath:[\large r_0], ao invés de latexmath:[\large br_0], como acima. O estabelecimento desta hipótese é muito mais um ato de vontade cuja consequência matemática imediata se amolda perfeitamente na mesmíssima forma expressa na tese do teorema anterior. Esta vontade é uma vontade restritiva: desejamos restringir o máximo divisor comum apenas a latexmath:[\large r_0] e latexmath:[\large n] e não mais a latexmath:[\large br_0] e latexmath:[\large n].
+
+Deste modo, a prova cabível, mesmo neste contexto ligeiramente modificado, acaba por ser, ainda assim, a mesmíssima que a do Teorema <<th-2>> acima.
+
+:the: {counter: th}
+[[th-3, {the} ]]
+****
+*_Teorema {the}_*:
+Seja latexmath:[\large s =\{r_i\}_{i=1}^{\infty}] e seja latexmath:[\large mdc(r_0,n)=d], então, para todo latexmath:[\large i>0],
+
+// :equ: {counter: eq}
+// [[eq-th-3-proposition, {equ} ]]
+[latexmath#eq-th-3-proposition, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+d |r_i
+\end{equation}
+++++
+// ({equ})
+
+*_Prova_*:
+O elemento latexmath:[\large i] de latexmath:[\large s], módulo latexmath:[\large n], é
+
+// :equ: {counter: eq}
+// [[eq-th-3-1, {equ} ]]
+[latexmath#eq-th-3-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+s_i= r_i\equiv b^{i}\cdot r_0
+\end{equation}
+++++
+// ({equ})
+
+Daí, vem que
+
+// :equ: {counter: eq}
+// [[eq-th-3-2, {equ} ]]
+[latexmath#eq-th-3-2, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+\begin{matrix}
+n |(b^{i}\cdot r_0-r_i)\ \ \Longrightarrow\ \  d |(b^{i}\cdot r_0-r_i)\ \ \Longrightarrow\ \ 
+\newline
+\Longrightarrow\ \ 
+\frac{(b^{i}\cdot r_0-r_i)}{d}=m\in\mathbb{Z}
+\ \ \Longrightarrow
+\newline
+\Longrightarrow\ \ 
+b^{i}\cdot r_0-dm=r_i
+\ \ \Longrightarrow\ \ d | r_i
+\end{matrix}
+\end{equation}
+++++
+// ({equ})
+
+****
+
+O próximo teorema é, em verdade, um corolário do Teorema <<th-3>>. Ele afirma que todos os restos latexmath:[\large r_i] que seguem um dado resto, latexmath:[\large r_{\bar i}], em latexmath:[\large s(b,m,n)=\{r_0,\dots,r_{\bar i},\dots, r_i,\dots\}] devem ser divisíveis pelos divisores simultâneos de latexmath:[\large r_{\bar i}] e latexmath:[\large n].
+
+:the: {counter: th}
+[[th-4, {the} ]]
+****
+*_Teorema {the}_*:
+Seja latexmath:[\large mdc( r_{\bar i},n)=d], então para todo latexmath:[\large i>\bar i],
+
+// :equ: {counter: eq}
+// [[eq-th-4-proposition, {equ} ]]
+[latexmath#eq-th-4-proposition, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+d |r_{\bar i}
+\end{equation}
+++++
+// ({equ})
+
+*_Prova_*:
+O elemento latexmath:[\large \bar i +1] de latexmath:[\large s], módulo latexmath:[\large n], é
+
+// :equ: {counter: eq}
+// [[eq-th-4-1, {equ} ]]
+[latexmath#eq-th-4-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+br_{\bar i}\equiv r_{\bar i +1}
+\end{equation}
+++++
+// ({equ})
+
+Daí vem que
+
+// :equ: {counter: eq}
+// [[eq-th-4-2, {equ} ]]
+[latexmath#eq-th-4-2, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+\begin{matrix}
+n |(b\cdot r_{\bar i}-r_{\bar i+1})
+\ \ \Longrightarrow\ \  d |(b\cdot r_{\bar i}-r_{\bar i+1})
+\ \ \Longrightarrow\ \ 
+\newline
+\Longrightarrow\ \ 
+\frac{(b\cdot r_{\bar i}-r_{\bar i+1})}{d}=m\in\mathbb{Z}
+\ \ \Longrightarrow
+\newline
+\Longrightarrow\ \ 
+b\cdot r_{\bar i}-dm=r_{\bar i+1}
+\ \ \Longrightarrow\ \ d | r_{\bar i+1}
+\end{matrix}
+\end{equation}
+++++
+// ({equ})
+
+Agora, para concluir a prova, por indução, deve-se supor que se observou que todos os restos até um dado latexmath:[\large I> \bar i] são divisíveis por latexmath:[\large d], para, então, escrever-se uma equação análoga a <<eq-th-4-1>> para latexmath:[\large I+1] e, por fim, terminar a provar com uma expressão análoga a <<eq-th-4-2>>.
+Como queríamos demonstrar.
+
+****
+
+Por fim, podemos já concluir que todos os restos do _período verdadeiro_ têm o mesmo divisor máximo com latexmath:[\large n]. Nós logo veremos que um mesmo denominador latexmath:[\large n] pode ter várias sequências latexmath:[\large s(b,m,n)] ligadas a si a depender do valor do numerador latexmath:[\large m] e que isto tem tudo a ver com o latexmath:[\large mdc] que os restos de latexmath:[\large s] têm com latexmath:[\large n].
+
+:the: {counter: th}
+[[th-5, {the} ]]
+****
+*_Teorema {the}_*:
+Todo resto do período verdadeiro de latexmath:[\large s(b,r_0,n)] tem o mesmo mdc com latexmath:[\large n].
+
+*_Prova_*:
+Sejam quaisquer latexmath:[\large j < k], maiores ou iguais que o número de elementos, latexmath:[\large \tilde{\alpha}], no possível falso período.
+
+De acordo com o Teorema <<th-4>>,
+
+// :equ: {counter: eq}
+// [[eq-th-5-1, {equ} ]]
+[latexmath#eq-th-5-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+d_1=mdc(r_j,n)\ \ |\ \ r_k
+\end{equation}
+++++
+// ({equ})
+
+Mas, em virtude da periodicidade do período verdadeiro de latexmath:[\large s], há um latexmath:[\large i\geq 0] para o qual latexmath:[\large k<j+i\alpha] e latexmath:[\large r_j=r_{j+i\alpha}].
+
+Novamente, de acordo com o Teorema <<th-4>>,
+
+// :equ: {counter: eq}
+// [[eq-th-5-2, {equ} ]]
+[latexmath#eq-th-5-2, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+d_2=mdc(r_k,n)\ \ |\ \ r_j=r_{j+i\alpha}
+\end{equation}
+++++
+// ({equ})
+
+De <<eq-th-5-1>> vem que latexmath:[\large d_1 \leq d_2], já que latexmath:[\large d_1] divide latexmath:[\large n] e latexmath:[\large r_k]; mas de <<eq-th-5-2>>, segue que latexmath:[\large d_2 \leq d_1], uma vez que latexmath:[\large d_2] divide latexmath:[\large n] e latexmath:[\large r_j=r_{j+i\alpha}]. A conclusão é que
+
+// :equ: {counter: eq}
+// [[eq-th-5-3, {equ} ]]
+[latexmath#eq-th-5-3, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+d_1 = d_2
+\end{equation}
+++++
+// ({equ})
+
+****
+
+// === Exercícios
+
+// . Utilize os campos abaixo para gerar os restos de latexmath:[\large s(b,m,n)] para a base (latexmath:[\large b]), numerador (latexmath:[\large m]) e denominador (latexmath:[\large n]) que você escolher. Teste várias triplas de números para verificar os resultados dos teoremas desta Seção. _Utilize expressões numéricas_ em qualquer um dos campos. Por exemplo, para testar o Teorema <<th-2>>, eu digitaria, digamos, a expressão numérica 2*5 no campo "*Base*", e 2*5*7*11 no campo "*Denominador*" e tentaria verificar se os restos gerados são todos, latexmath:[\large i>0], de fato, divisíveis pelo fator comum latexmath:[\large 2] ou pelo outro fator comum latexmath:[\large 5]. O "*Numerador*" pode ser qualquer valor não-negativo. Após isto, eu substituiria o fator latexmath:[\large 2] pelo fator latexmath:[\large 3] em ambos os campos e tentaria verificar se todos os restos, latexmath:[\large i>0], serão divisíveis por latexmath:[\large 3], e assim por diante.
+
+// ++++
+// Numerador: <input class="numerador" type="text" name="quantidade" min="1" required>
+// <br>
+// Denominador: <input class="denominador" type="text" name="quantidade" min="1" required>
+// <br>
+// Base: <input class="base" type="text" name="quantidade" value="10" min="1" required>
+// <br>
+// <button class="calcular">Calcular</button>
+// <div class="result"></div>
+// ++++

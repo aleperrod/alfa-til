@@ -1,0 +1,452 @@
+== A Periodicidade da Sequência s
+
+A sequência latexmath:[\large s] herda, naturalmente, a periodicidade dizimal de latexmath:[\large \frac{n}{d}]. Sob este aspecto, não seria preciso provar que latexmath:[\large s] é periódica, pois ela não poderia não ser, já que ela é apenas parte integrante da conta de <<tab-npord>> que, como sabemos, é onde esta periodicidade se manifesta e de onde, para começar, sabemos que ela acontece.
+
+Mas, empreender a tarefa de tal prova é, como veremos a seguir, tão sobejamente frutífera, que acabaremos por esquecer completamente a fadiga dos esforços de arar esta terra e plantar sobre ela.
+
+=== O Período Falso e os Períodos Verdadeiros
+
+Todo este trabalho nasce da observação de incontáveis cálculos de divisão. Quando páginas atrás, eu disse que eu calculei, calculei e calculei, era a isto que eu me referia. Na verdade, qualquer piá ou guria que acompanhe as primeiras lições escolares sobre o processo de divisão, provavelmente ouvirá que há números racionais com dízima finita e outros com dízima periódica infinita. Isto pode ser observado nas continhas de divisão. É comum escrevermos números com _parte quebrada_ com reticências depois do último algarismo, seja para indicar que a conta continuaria, se quiséssemos, seja para indicar que o período se repetiria.
+
+Na verdade, *toda dízima é periódica*! Este detalhe inócuo logo ficará claro como cristal. Quando dizemos que algumas dízimas são finitas é porque observamos uma primeira sequência de algarismos seguida por uma outra sequência de infinitos zeros. A primeira sequência de algarismos é o falso período (que nem sempre ocorre), enquanto que a sequência infinita de zeros é justamente a sequência periódica cujo período é exatamente o algarismo zero.
+
+A forma geral da dízima de um número latexmath:[\large \frac{n}{d}] é simplesmente
+
+// :equ: {counter: eq}
+// [[eq-figures-0, {equ} ]]
+[latexmath#eq-figures-0, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+a_0,a_1\dots a_{\tilde{\alpha}}a_{\tilde{\alpha} + 1}\dots a_{\tilde{\alpha} + \alpha}\dots
+\end{equation}
+++++
+// ({equ})
+
+em que latexmath:[\large a_0] é a parte inteira de latexmath:[\large \frac{n}{d}], enquanto que latexmath:[\large a_1\dots a_{\tilde{\alpha}}] é o possível falso período e latexmath:[\large a_{\tilde{\alpha} + 1}\dots a_{\tilde{\alpha} + \alpha}] é o período de algarismos que se repetem.
+
+O símbolo latexmath:[\large \widetilde{\alpha}] designa o número de elementos no falso período. É um fato muito feliz o de termos sido capazes de dar a fórmula exata que calcula este número também. Chegaremos a esta fórmula grandiosa em uma abordagem detalhadíssima nos capítulos vindouros.
+
+Os algarismos dizimais de latexmath:[\large \frac{n}{d}] se fazem acompanhar pelos respectivos restos desta divisão, a saber, os elementos da sequência finita
+
+// :equ: {counter: eq}
+// [[eq-s-0, {equ} ]]
+[latexmath#eq-s-0, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+s=\{r_0,r_1,\dots, r_{\tilde{\alpha}},r_{\tilde{\alpha} + 1},\dots, r_{\tilde{\alpha} + \alpha}\}
+\end{equation}
+++++
+// ({equ})
+
+Veja que se latexmath:[\large \tilde{\alpha}=0], isto significa que nem latexmath:[\large \frac{n}{d}], nem latexmath:[\large s] têm um falso período e que tanto <<eq-figures-0>> como <<eq-s-0>> terão, respectivamente, os seguintes aspectos
+
+// :equ: {counter: eq}
+// [[eq-figures-1, {equ} ]]
+[latexmath#eq-figures-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+a_0,a_{1}\dots a_{\alpha}\dots
+\end{equation}
+++++
+// ({equ})
+
+e 
+
+// :equ: {counter: eq}
+// [[eq-s-1, {equ} ]]
+[latexmath#eq-s-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+s=\{r_0,r_{1},\dots, r_{\alpha}\}
+\end{equation}
+++++
+// ({equ})
+
+que são os períodos verdadeiros que se repetem indefinidamente.
+
+=== O Teorema Fundamental da Periodicidade
+
+A seguir afirmo e provo o Teorema Fundamental da Periodicidade de latexmath:[\large s] generalizado para uma base latexmath:[\large b] qualquer. Este é, de fato, o teorema fundamental da Teoria Alfa. Ele está na base, direta ou indiretamente, de quase tudo o que afirmaremos daqui em diante.
+
+A partir deste ponto, nós sempre nos referiremos ao fenômeno da periodicidade observada nos algarismos dizimais de uma divisão, digamos, latexmath:[\large \frac{m}{n}] através da sequência de congruências correspondente, ou, mais especificamente, através da sequencia latexmath:[\large s=s(b,m,n)], em que os argumentos latexmath:[\large b], latexmath:[\large m] e latexmath:[\large n] indicam, respectivamente, a base em que o número latexmath:[\large \frac{m}{n}] estiver sendo expressa, o numerador - segundo argumento - e o denominador (terceiro argumento). Note que o numerador latexmath:[\large m] pode não coincidir com latexmath:[\large r_0] e, por esta razão, não aparece em latexmath:[\large s(b,m,n)=\{r_i\}_{i=0}^{\tilde{\alpha} + \alpha}]. Logo, mostraremos que se latexmath:[\large r_0\in s(b,m,n)], então, latexmath:[\large s(b,m,n)=s(b,r_0,n)]. Veremos isto em muito maior detalhe nos artigos que se seguirão.
+
+Antes de enunciarmo o teorema da periodicidade, precisamos levar em conta mais um detalhe. Vimos, por exemplo, em <<eq-npord-continhas-2>>, que a sequência dos algarismos envolvidos em latexmath:[\large \frac{m}{n}] pode ser calculada a partir dos restos - os elementos de latexmath:[\large s] - e do denominador. Sumarizamos este fato na Definição <<def-1>>, abaixo. Com ela, completamos os pedaços de informação fundamental que precisamos para dar continuidade ao desenvolvimento deste trabalho.
+
+:def: {counter: df}
+[[def-1, {def} ]]
+****
+*_Definição {def}_*:
+Sejam latexmath:[\large \tilde{\alpha}] e latexmath:[\large \alpha] o número de elementos no falso período e no período verdadeiro de latexmath:[\large s(b,r_0, n)]. A expressão dos algarismos de uma sequência latexmath:[\large s] é a sequência dos algarismos do falso período, se houver, e do período de latexmath:[\large s], e tem a seguinte forma
+
+// :equ: {counter: eq}
+// [[eq-figures-expression, {equ} ]]
+[latexmath#eq-figures-expression, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+a(b,r_0,n)=\{
+  \frac{bs_{i-1}-s_i}{n}
+  \}_{i=1}^{\widetilde{\alpha}+\alpha}
+\end{equation}
+++++
+// ({equ})
+
+****
+
+Com esta definição, expressamos de forma clara e direta o que já havíamos visto, como dissemos, no conjunto de equações em <<eq-npord-continhas-2>>. A definição acima faz uso do fato de que os elementos latexmath:[\large s_i] de latexmath:[\large s] são os restos latexmath:[\large r_i] da divisão. Passemos, agora, ao seguinte Teorema Fundamental:
+
+:the: {counter: th}
+[[th-fundamental, {the} ]]
+****
+*_Teorema {the}_*:
+Sejam latexmath:[\large b\in \mathbb{N}], latexmath:[\large n\in \mathbb{N}-\{0\}] e latexmath:[\large r_i\in\{0,...,n-1\}]. A sequência  de congruências abaixo é periódica de período latexmath:[\large \pi], ou seja,
+latexmath:[\large r_i=r_{i+\pi}],
+podendo, ou não, haver um primeiro período que  não se repete (falso período).
+
+// :equ: {counter: eq}
+// [[eq-mad-0, {equ} ]]
+[latexmath#eq-mad-0, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+\begin{matrix}
+b\cdot r_0 &\equiv &r_1 & (mod\ \ n)\\
+b\cdot r_1 &\equiv &r_2 & (mod\ \  n)\\
+\vdots & &\vdots & \vdots \\
+b\cdot r_i &\equiv &r_{i+1} & (mod\ \  n)\\
+\vdots & &\vdots & \vdots \\
+\end{matrix}
+\end{equation}
+++++
+// ({equ})
+
+*_Prova_*:
+ latexmath:[\large \{0,...,n-1\}] é um conjunto completo de resíduos módulo n. Todos os demais números naturais são equivalentes, módulo n, a algum resíduo contido neste conjunto.
+
+Deste modo, qualquer sequência de congruências com mais de latexmath:[\large n] congruências apresentará, pelo menos, um latexmath:[\large r_T] repetido no lado direito de uma delas.
+
+Suponha que latexmath:[\large r_T] seja a primeira repetição, de fato.
+
+Suponha que latexmath:[\large r_T] repita um latexmath:[\large r_i] no lado esquerdo de qualquer uma das congruências acima, ou seja, latexmath:[\large 0\leq i\leq T-1].
+
+// :equ: {counter: eq}
+// [[eq-mad-1, {equ} ]]
+[latexmath#eq-mad-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+\begin{matrix}
+b\cdot r_0 &\equiv &r_1 & (mod\ \  n)\\
+b\cdot r_1 &\equiv &r_2 & (mod\ \  n)\\
+\vdots & &\vdots & \vdots \\
+b\cdot r_i &\equiv &r_{i+1} & (mod\ \  n)\\
+\vdots & &\vdots & \vdots \\
+b\cdot r_{T-1} &\equiv &r_{T} & (mod\ \  n)\\
+\vdots & &\vdots & \vdots
+\end{matrix}
+\end{equation}
+++++
+// ({equ})
+
+Então,
+
+// :equ: {counter: eq}
+// [[eq-r_i-equals-r_T-0, {equ} ]]
+[latexmath#eq-r_i-equals-r_T-0, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+r_i=r_T
+\end{equation}
+++++
+// ({equ})
+
+e temos as seguintes 2 equações, módulo latexmath:[\large n], advindas, respectivamente, das congruências latexmath:[\large i+1] e latexmath:[\large T+1] de <<eq-mad-1>>.
+
+// :equ: {counter: eq}
+// [[eq-br_i-equv-r_iplus1-0, {equ} ]]
+[latexmath#eq-br_i-equv-r_iplus1-0, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+b
+\cdot
+r_i
+\equiv
+r_{i+1}
+\end{equation}
+++++
+// ({equ})
+
+// :equ: {counter: eq}
+// [[eq-br_T-equv-r_Tplus1-0, {equ} ]]
+[latexmath#eq-br_T-equv-r_Tplus1-0, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+b
+\cdot
+r_T
+\equiv
+r_{T+1}
+\end{equation}
+++++
+// ({equ})
+
+Por causa de <<eq-r_i-equals-r_T-0>>, a equação <<eq-br_iplus1-equv-r_Tplus1-0>> abaixo pode ser escrita a partir de <<eq-br_i-equv-r_iplus1-0>> e <<eq-br_T-equv-r_Tplus1-0>>.
+
+// :equ: {counter: eq}
+// [[eq-br_iplus1-equv-r_Tplus1-0, {equ} ]]
+[latexmath#eq-br_iplus1-equv-r_Tplus1-0, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+r_{i+1}
+\equiv
+r_{T+1}
+\end{equation}
+++++
+// ({equ})
+
+donde deve-se concluir a igualdade
+
+// :equ: {counter: eq}
+// [[eq_r_iplus1, {equ} ]]
+[latexmath#eq_r_iplus1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+r_{i+1}
+=
+r_{T+1}
+\end{equation}
+++++
+// ({equ})
+
+uma vez que latexmath:[\large r_{i+1}] e latexmath:[\large r_{T+1}], pertencendo ao mesmo conjunto de resíduos módulo n, só seriam diferentes se fossem incongruentes. Lembremos que os resíduos, módulo n, do conjunto latexmath:[\large \{0,...,n-1\}] são incongruentes entre si.
+
+Acabamos de mostrar que se houver a repetição em <<eq-mad-1>>, haverá também a repetição em <<eq_r_iplus1>>, ou seja, o resto no lado direito da congruência latexmath:[\large i+1] é igual ao resto no lado direito de latexmath:[\large T+1].
+
+// :equ: {counter: eq}
+// [[eq-mad-2, {equ} ]]
+[latexmath#eq-mad-2, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+\begin{matrix}
+b\cdot r_0 &\equiv &r_1 & (mod\ \  n)\\
+b\cdot r_1 &\equiv &r_2 & (mod\ \  n)\\
+\vdots & &\vdots & \vdots \\
+b\cdot r_i &\equiv &r_{i+1} & (mod\ \  n)\\
+b\cdot r_{i+1} &\equiv &r_{i+2} & (mod\ \  n)\\
+\vdots & &\vdots & \vdots \\
+b\cdot r_{T-1} &\equiv &r_{T} & (mod\ \  n)\\
+b\cdot r_{T} &\equiv &r_{T+1} & (mod\ \  n)\\
+b\cdot r_{T+1} &\equiv &r_{T+2} & (mod\ \  n)\\
+\vdots & &\vdots & \vdots
+\end{matrix}
+\end{equation}
+++++
+// ({equ})
+
+Acontece que, como podemos ver em <<eq-mad-2>>, o resto latexmath:[\large r_{T+1}], no lado direito da congruência latexmath:[\large T+1], repete o resto latexmath:[\large r_{i+1}] no lado esquerdo da congruência latexmath:[\large i+2]. Logo, os restos latexmath:[\large r_{i+2}] e latexmath:[\large r_{T+2}] devem ser iguais também, através do mesmo raciocínio que levou a <<eq_r_iplus1>>.
+
+Veja que o número de congruências é o mesmo, latexmath:[\large \pi], entre as congruências latexmath:[\large i+1] e latexmath:[\large T] e entre as congruências latexmath:[\large T+1] e latexmath:[\large i+2].
+
+// :equ: {counter: eq}
+// [[eq-T-i, {equ} ]]
+[latexmath#eq-T-i, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+T-i=\ \  \pi\ \  =(T+1)-(i+1)
+\end{equation}
+++++
+// ({equ})
+
+Suponha, então, por indução, que a partir da congruência latexmath:[\large i+1] até uma congruência qualquer latexmath:[\large j+\pi] tenhamos verificado que os restos se repetem de latexmath:[\large \pi] em latexmath:[\large \pi] congruências.
+
+Isto quer dizer que o resto latexmath:[\large r_{j + \pi}], que está a direita da congruência latexmath:[\large j+\pi], repete o resto latexmath:[\large r_j], à esquerda da congruência latexmath:[\large j+1].
+
+Assim, o resto latexmath:[\large r_{j+\pi}] está também à esquerda da congruência latexmath:[\large j+\pi +1]. Qual será o valor, latexmath:[\large x], do resto à direita desta congruência?
+
+// :equ: {counter: eq}
+// [[eq-mad-3, {equ} ]]
+[latexmath#eq-mad-3, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+\begin{matrix}
+b\cdot r_0 &\equiv &r_1 & (mod\ \  n)\\
+b\cdot r_1 &\equiv &r_2 & (mod\ \  n)\\
+\vdots & &\vdots & \vdots \\
+\vdots & &\vdots & \vdots \\
+\vdots & &\vdots & \vdots \\
+b\cdot r_{j} &\equiv &r_{j+1} & (mod\ \  n)\\
+\vdots & &\vdots & \vdots \\
+b\cdot r_{j+\pi-1} &\equiv &r_{j+\pi} & (mod\ \  n)\\
+b\cdot r_{j+\pi} &\equiv &x & (mod\ \  n)\\
+\vdots & &\vdots & \vdots
+\end{matrix}
+\end{equation}
+++++
+// ({equ})
+
+A resposta vem da comparação entre as congruências latexmath:[\large j+1] e latexmath:[\large j+\pi+1].
+
+// :equ: {counter: eq}
+// [[eq-equiv-0, {equ} ]]
+[latexmath#eq-equiv-0, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+b\cdot r_{j} \equiv r_{j+1}  (mod\ \  n)
+\end{equation}
+++++
+// ({equ})
+
+// :equ: {counter: eq}
+// [[eq-equiv-1, {equ} ]]
+[latexmath#eq-equiv-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+b\cdot r_{j+\pi} \equiv x (mod\ \  n)
+\end{equation}
+++++
+// ({equ})
+
+Já que
+
+// :equ: {counter: eq}
+// [[eq-equality-0, {equ} ]]
+[latexmath#eq-equality-0, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+r_j=r_{j+\pi}
+\end{equation}
+++++
+// ({equ})
+
+teremos, de <<eq-equiv-0>> e <<eq-equiv-1>> que
+
+// :equ: {counter: eq}
+// [[eq-equiv-2, {equ} ]]
+[latexmath#eq-equiv-2, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+r_{j+1}\equiv x(mod\ \  n)
+\end{equation}
+++++
+// ({equ})
+
+donde se conclui que
+
+// :equ: {counter: eq}
+// [[eq-equality-1, {equ} ]]
+[latexmath#eq-equality-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+r_{j+1}= x
+\end{equation}
+++++
+// ({equ})
+
+uma vez que ambos pertencem ao conjunto latexmath:[\large \{0,...,n-1\}], de elementos incongruentes entre si, a congruência em <<eq-equiv-2>> só pode valer se a igualdade em <<eq-equality-1>> valer também.
+
+Mas latexmath:[\large x] é latexmath:[\large r_{j+\pi+1}]. Logo, mostramos que, a partir da congruência latexmath:[\large T], todo o resto repete o resto que está à direita latexmath:[\large \pi] congruências atrás.
+
+Por fim, os restos latexmath:[\large r_1,..., r_{i-1}] são um primeiro período que não se repete (falso período). Este falso período só existirá se latexmath:[\large r_T] repetir um resto diferente de latexmath:[\large r_0]. Como queríamos demonstrar.
+****
+
+=== Exercícios Resolvidos
+
+Exercício 1:: Escreva um código em Python, ou em sua linguagem preferida, que modele o Teorema Fundamental da Periodicidade, principalmente, o cálculo dos restos. Explique o código.
+
+*Solução*::
++
+.Código em Python que modela o Teorema Fundamental da Periodicidade. O método n_over_d calcula os restos e os algarismos periódicos e não-periódicos referentes à fração latexmath:[\large \frac{n}{d}].
+[[code-noverd, Código que calcula as sequências s e a, em Python]]
+[source,python,linenums]
+----
+def n_over_d(n,d,b=10):
+  '''
+  Calculates the basic periodic information about the rational n/d representation.
+  Args:
+    n: numerator.
+    d: denominator.
+    b: base.
+  Returns:
+    A dictionary with the 4 following key-value items, with the values as tuples:
+    - All the args as above.
+    - first non-repeating remainders.
+    - the repeating remainders.
+    - first non-repeating decimals.
+    - the repeating decimals.
+  '''
+  dic = {}
+  dic['n'] = n
+  dic['d'] = d
+  dic['b'] = b
+  dic['integer part'] = n // d
+
+  alpha = None
+  alpha_tilde = None
+  first_remainder = n - dic['integer part'] * d
+
+  repeating_period_end = False
+  decimals = []
+  remainders = [first_remainder]
+  repeating_period_first_remainder = None
+  i = 0
+  while not repeating_period_end:
+    remainder = (b * remainders[i]) % d
+    decimals.append( int((b * remainders[i] - remainder) / d) )
+    if remainder in remainders:
+      repeating_period_end = True
+      repeating_period_first_remainder = remainder
+
+      break
+    remainders.append(remainder)
+    i += 1
+
+  dic['alpha-tilde'] = remainders.index(repeating_period_first_remainder)
+  dic['alpha'] = i + 1 - dic['alpha-tilde']
+  dic['non-repeating remainders'] = tuple(remainders[:dic['alpha-tilde']])
+  dic['repeating remainders'] = tuple(remainders[dic['alpha-tilde']:])
+  dic['non-repeating decimals'] = tuple(decimals[:dic['alpha-tilde']])
+  dic['repeating decimals'] = tuple(decimals[dic['alpha-tilde']:])
+  return dic
+----
++
+Nas linhas 16 até 20, eu defino ou inicializo um dicionário, `+dic+`, que já contém, de saída, os valores do numerador (n), do denominador (d), da base (b) e da parte inteira, `+dic['integer part']+`, do resultado da fração latexmath:[\large \frac{n}{d}].
++
+Nas linhas 22 até 30, variáveis e vetores com nomes sugestivos (em inglês) são também inicializados com valores adequados às operações que serão realizadas no interior do laço `+while+` que começa na linha 31.
++
+Note como a linha 24 do código <<code-noverd>> acima contém a operação equivalente a que está na segunda e terceira linhas de <<tab-npord>>, na coluna de continhas, e que corresponde ao cálculo do latexmath:[\large r_0] (que na 3ª linha já aparece multiplicado pela base 10).
++
+O laço `+while+` é executado enquanto o último resto do período verdadeiro não for encontrado, o que, de acordo com o Teorema <<th-fundamental>>, ocorre na primeira vez em que um resto que já esteja no conjunto de restos (vetor `+remainders+`), sejá novamente calculado. Veja o escopo do `+if+` da linha 34. Se este `+if+` for verdadeiro, ou seja, se o `+remainder+` da vez, já estiver no vetor `+remainders+`, então, o laço `+while+` é interrompido (`+break+`).
++
+Quando o `+while+` é interrompido, o dicionário `+dic+` é atualizado com as informações colhidas: número de elementos no período verdadeiro (alpha: latexmath:[\large \alpha]), número de elementos no período falso, se houver (alpha-tilde: latexmath:[\large \tilde{\alpha}]), e os restos e algarismos do período falso e do verdadeiro, respectivamente, sob as chaves `+non-repeating remainders+`, `+non-repeating decimals+`, `+repeating remainders+` e `+repeating decimals+`, os quais correspondem aos elementos de latexmath:[\large s] e aos elementos de latexmath:[\large a] (equação <<eq-figures-expression>>).
+
+//Uma tradução para Javascript do <<code-noverd>> está rodando nesta página e é responsável pela geração automática de valores nas Seções de Exercícios!
+
+// 2: Utilize, mais uma vez, os campos abaixo para informar numeradores (n) e denominadores (d) para calcular e exibir, automaticamente, os restos e os algarismos da divisão latexmath:[\large \frac{n}{d}]. Utilize diferentes combinações de latexmath:[\large n], latexmath:[\large d] e latexmath:[\large b] para tentar encontrar combinações que geram períodos falsos e as que não geram. Testando números cada vez maiores para o denominador, você provavelmente verá que o seu navegador começará a demorar para responder e eventualmente poderá travar ou deixar de responder para números realmente muito grandes!::
+
+// ++++
+// Numerador: <input class="numerador" type="text" name="quantidade" min="1" required>
+// <br>
+// Denominador: <input class="denominador" type="text" name="quantidade" min="1" required>
+// <br>
+// Base: <input class="base" type="text" name="quantidade" value="10" min="1" required>
+// <br>
+// <button class="calcular">Calcular</button>
+// <div class="result"></div>
+// ++++

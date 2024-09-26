@@ -1,0 +1,20 @@
+// [.text-center.front-title]
+// Hackeando as Profecias
+
+// [.text-center.front-subtitle]
+// Expondo o Símbolo, o Significado e a Identidade dos Dez Chifres do Animal Monstruoso de Daniel
+
+****
+[.title-cover.text-center]
+A Fórmula Do +
+Número de Algarismos +
+no Falso Período Dizimal
+
+[.subtitle-cover-word-serie.text-center]
+Primeira Edição
+
+[.text-center.front-author]
+A{empty}. P. Rodrigues
+****
+
+<<<

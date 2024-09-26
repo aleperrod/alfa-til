@@ -1,0 +1,103 @@
+extends: default-sans-with-font-fallbacks
+font:
+  catalog:
+    # Dancing Script:
+    #   normal: DancingScript-Regular.ttf
+    #   bold: DancingScript-Bold.ttf
+    #   italic: DancingScript-Medium.ttf
+    #   bold_italic: DancingScript-SemiBold.ttf
+    # Julius Sans One:
+    #   normal: JuliusSansOne-Regular.ttf
+    #   bold: JuliusSansOne-Regular.ttf
+    #   italic: JuliusSansOne-Regular.ttf
+    #   bold_italic: JuliusSansOne-Regular.ttf
+    Noto Serif:
+      normal: GEM_FONTS_DIR/notoserif-regular-subset.ttf
+      bold: GEM_FONTS_DIR/notoserif-bold-subset.ttf
+      italic: GEM_FONTS_DIR/notoserif-italic-subset.ttf
+      bold_italic: GEM_FONTS_DIR/notoserif-bold_italic-subset.ttf
+    Noto Sans:
+      normal: GEM_FONTS_DIR/notosans-regular-subset.ttf
+      bold: GEM_FONTS_DIR/notosans-bold-subset.ttf
+      italic: GEM_FONTS_DIR/notosans-italic-subset.ttf
+      bold_italic: GEM_FONTS_DIR/notosans-bold_italic-subset.ttf
+    M+ 1mn:
+      normal: GEM_FONTS_DIR/mplus1mn-regular-subset.ttf
+      bold: GEM_FONTS_DIR/mplus1mn-bold-subset.ttf
+      italic: GEM_FONTS_DIR/mplus1mn-italic-subset.ttf
+      bold_italic: GEM_FONTS_DIR/mplus1mn-bold_italic-subset.ttf
+    M+ 1p Fallback: GEM_FONTS_DIR/mplus1p-regular-fallback.ttf
+    Noto Emoji: GEM_FONTS_DIR/notoemoji-subset.ttf
+  fallbacks: [M+ 1p Fallback, Noto Emoji]
+  # dir:
+  #   - /mnt/c/Users/Alessandro/Desktop/Livros/hap/Dancing_Script/static
+  #   - /mnt/c/Users/Alessandro/Desktop/Livros/hap/Julius_Sans_One
+page:
+  size: [160.1mm,230.1mm]
+  margin: [0.8in, 0.67in, 1in, 0.67in]
+base:
+  font-family: Noto Sans
+  line-height: 1.8
+  font-size: 15
+# cover:
+#    back:
+#      image: image:graphics/back-cover.png[fit=fill]
+code:
+  font-family: M+ 1mn
+codespan:
+  font-family: $code-font-family
+kbd:
+  font-family: $code-font-family
+button:
+  font-family: $base-font-family
+image:
+  # width: 90%
+  caption:
+    text-align: center
+table:
+  cell:
+    line-height: 1
+    padding: 1
+  font-size: 9
+role: 
+  coloph:
+    font-size: 10
+  dedicat:
+    font-size: 12
+  # front-title: 
+  #   font-color: #555555
+  #   font-style: bold
+  #   font-size: 40
+  # front-subtitle: 
+  #   font-color: #333333
+  #   font-style: bold
+  #   font-size: 18
+  front-author: 
+    font-color: #666666 
+    font-style: bold
+    font-size: 15
+  # author-cover:
+  #   font-color: #f5f5f5
+  title-cover:
+    # text-align: center
+    font-size: 25
+    font-style: bold
+  subtitle-cover:
+    font-color: #cccccc
+    font-style: normal
+    font-size: 18
+  # scripture:
+  #   # font-family: Dancing Script
+  #   font-family: Noto Serif
+  #   font-style: italic
+  #   line-height: 1.2
+  #   font-size: 12
+    # text-align: center
+# title-page:
+#     authors:
+#         # font-family: Dancing Script
+#         # font-family: Julius Sans One
+#         font-color: #ffffff
+#         font-size: 45
+#         font-style: italic #medium
+#         margin-top: -22cm

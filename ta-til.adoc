@@ -1,0 +1,69 @@
+:doctype: book
+:email: ale.per.rod@gmail.com
+// :title: Teoria Alfa - A. P. Rodrigues
+:!chapter-signifier:
+:source-highlighter: rouge
+:pygments-style: manni
+:pygments-linenums-mode: inline
+:pdf-theme: ./ta-til-theme.yml
+:hardbreaks!:
+:icons: font
+:imagesdir: ./graphics
+// :title-page-background-image: image:catedral-mistica.png[fit=cover]
+:description: 
+:appendix-caption: Apêndice
+:sectanchors:
+:sectnums:
+:sectnumlevels: 3
+:table-caption: Tabela
+:stem:
+:eqnums:
+:toc: macro
+:toclevels: 3
+:toc-title: Conteúdo
+:count: {counter: eq: 0}
+:count2: {counter: th: 0}
+:count3: {counter: df: 0}
+:conter4: {counter: le: 0}
+:conter5: {counter: al: 0}
+// :page_margin_bottom: 1cm
+= {empty}
+// = [.title-cover]#A Fórmula Do Número de Algarismos no Falso Período Dizimal#: [.subtitle-cover]#Entendendo os Números a Partir da Forma Como São Escritos#
+// A. P. Rodrigues
+
+include::front.adoc[]
+
+include::ficha-catalografica.adoc[]
+
+include::colophone.adoc[]
+
+include::dedication.adoc[]
+
+include::preface-til.adoc[]
+
+toc::[]
+
+include::divisao.adoc[]
+
+include::theorem-0.adoc[]
+
+include::theorem-1.adoc[]
+
+include::theorem-2-a-5.adoc[]
+
+// include::theorem-32-and-corolaries.adoc[]
+
+include::theorem-6.adoc[]
+
+include::theorem-21-and-39.adoc[]
+
+// include::theorem-7.adoc[]
+
+// include::theorem-8.adoc[]
+
+// include::theorem-9.adoc[]
+
+// include::theorem-10.adoc[]
+
+// include::theorem-12.adoc[]
+

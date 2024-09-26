@@ -1,0 +1,345 @@
+== Sem Título Ainda
+
+////
+O resultado que havia sido apenas exibido como corolário 2 do Teorema 32, será, aqui, enunciado de modo mais geral e provado como um teorema. O Teorema 32 será, aqui, enunciado como um corolário deste resultado mais geral.
+////
+
+:the: {counter: th}
+[[co-2-th-32, {the} ]]
+****
+*_Teorema {the}_*:
+
+[latexmath#eq-co-2-th-32-1, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+\alpha+\widetilde{\alpha}=
+\frac{1}{\ln b}
+\ln
+\left(
+\frac{nk+r_{\widetilde{\alpha}}}{r_0}    
+\right)
+\end{equation}
+++++
+
+*_Prova_*:
+
+Sabemos que para calcularmos um resto, latexmath:[\Large r_i], qualquer  no período da divisão de latexmath:[\Large s(b,r_0,n)], podemos utilizar a fórmula dada em <<eq-r_i-formula>> e provada no Teorema <<th-1>>, a qual é
+
+[latexmath#eq-r_i-formula-2, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+r_i
+\equiv
+b^{i}
+\cdot
+r_0
+(mod\ \ n)
+\end{equation}
+++++
+
+O Teorema Fundamental (Teorema <<th-fundamental>>), nos diz que latexmath:[\Large s] pode ter um falso período de latexmath:[\Large \widetilde{\alpha}(b,r_0,n)=\widetilde{\alpha}] elementos. Se latexmath:[\Large s] não tiver um falso período, então, latexmath:[\Large \widetilde{\alpha}=0].
+
+Assim, vamos assumir que latexmath:[\Large s] possa ter um falso período e usar a fórmula <<eq-r_i-formula-2>> para calcular o elemento latexmath:[\Large \alpha+\widetilde{\alpha}] de latexmath:[\Large s], ou seja, o último resto do primeiro período verdadeiro que venha depois de um possível falso período.
+
+Deste modo, teremos que escrever
+
+[latexmath#eq-r_i-formula-with-false-period, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+r_{\alpha+\widetilde{\alpha}}
+\equiv
+b^{\alpha+\widetilde{\alpha}}
+\cdot
+r_0
+(mod\ \ n)
+\end{equation}
+++++
+
+Agora, podemos concluir que há um latexmath:[\Large k\in\mathbb{Z}], tal que
+
+[latexmath#eq-co-2-th-32-2, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+b^{\alpha+\widetilde{\alpha}}
+r_0
+-
+r_{\alpha+\widetilde{\alpha}}
+=
+nk
+\end{equation}
+++++
+
+Agora, <<eq-co-2-th-32-2>>, transforma-se em <<eq-co-2-th-32-1>> por simples manipulações aritméticas, CQD.
+****
+
+****
+[[cor-1-th-32, Corolário 1 do Teorema <<co-2-th-32>>]]
+*_Corolário 1 do Teorema <<co-2-th-32>>_*:
+
+Façamos latexmath:[\Large \widetilde{\alpha}=0] e consideremos latexmath:[\Large a(b,r,n)=\{a_1 ,\dots ,a_{\alpha}\}].
+
+A constante latexmath:[\Large k], dada em <<eq-co-2-th-32-1>>, é única e tem a forma
+
+[latexmath#eq-th-32, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+k=\sum_{i=1}^{\alpha}b^{\alpha-i}\cdot a_i
+\end{equation}
+++++
+
+*_Prova 1_*:
+
+Já que latexmath:[\Large \widetilde{\alpha}=0], podemos escrever <<eq-r_i-formula-with-false-period>>, assim
+
+[latexmath#eq-r_i-formula-without-false-period, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+r_0
+=
+r_{\alpha}
+\equiv
+b^{\alpha}
+\cdot
+r_0
+(mod\ \ n)
+\end{equation}
+++++
+
+Segue-se que <<eq-co-2-th-32-2>> pode ser reescrita assim
+
+[latexmath#eq-1-co-1-th-32, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+\frac{r_0}{n}=\frac{k}{b^{\alpha}-1}
+\end{equation}
+++++
+
+O lado esquerdo de <<eq-1-co-1-th-32>> é a fração associada a latexmath:[\Large s(b,r_0,n)]. A expressão dos algarismos de latexmath:[\Large s] é latexmath:[\Large a(b,r,n)] e ela tem que ser a expressão dos algarismos do período da dízima periódica de latexmath:[\frac{r_0}{n}].
+
+Por outro lado, o membro direito de <<eq-1-co-1-th-32>> é a fórmula da soma de uma progressão geométrica infinita cujo primeiro termo é latexmath:[\Large \frac{k}{b^{\alpha}}] e cuja razão, entre 0 e 1, é latexmath:[\Large \frac{1}{b^{\alpha}}]. Deste modo, <<eq-1-co-1-th-32>> é
+
+[latexmath#eq-r_over_n, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+\frac{r_0}{n}=\frac{k}{b^{\alpha}-1}=\sum_{i=1}^{\infty}\frac{k}{b^{i\alpha}}
+\end{equation}
+++++
+
+Logo, escrito na base latexmath:[\Large b], latexmath:[\Large k] é um número cujos algarismos precisam ser os de latexmath:[\Large a(b,r,n)], de modo que o lado mais à direita de <<eq-r_over_n>> corresponda à expansão da dízima periódica de latexmath:[\Large \frac{r_0}{n}]. Deste modo, temos latexmath:[\Large k=\sum_{i=1}^{\alpha}b^{\alpha-i}\cdot a_i].
+
+Por fim, supondo-se a existência de duas soluções latexmath:[\Large k_1] e latexmath:[\Large k_2] para <<eq-1-co-1-th-32>>, teríamos que ter
+[latexmath#eq-3-co-1-th-32, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+\frac{r_0}{n}=\frac{k_1}{b^{\alpha}-1}
+\end{equation}
+++++
+
+e
+
+[latexmath#eq-11-co-1-th-32, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+\frac{r_0}{n}=\frac{k_2}{b^{\alpha}-1}
+\end{equation}
+++++
+
+de ode viria, muito diretamente, a contraditória igualdade latexmath:[\Large k_1=k_2]. Logo, latexmath:[\Large k] é único, CQD.
+
+*Prova 2*:
+
+Por hipótese, latexmath:[\Large s(b,r_0,n)] não tem um falso período.
+
+Então, do Teorema Fundamental, segue-se que podemos escrever as latexmath:[\Large \alpha] primeiras congruências associadas a latexmath:[\Large s(b,r_0,n)] e que correspondem aos latexmath:[\Large \alpha] restos do período verdadeiro de latexmath:[\Large s].
+
+[latexmath#eq-s-matrix, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+\begin{matrix}
+b\cdot r_0 &\equiv &r_1 & (mod\ n)\\
+\vdots & &\vdots & \vdots \\
+b\cdot r_{i-1} &\equiv &r_i & (mod\ n)\\
+\vdots & &\vdots & \vdots \\
+b\cdot r_{\alpha-1} &\equiv &r_{\alpha} & (mod\ n)\\
+\end{matrix}
+\end{equation}
+++++
+
+com latexmath:[\Large r_0=r_{\alpha}] sendo devida ao fato de <<eq-s-matrix>> ser o período de latexmath:[\Large s].
+
+Da Definição 1, segue-se que
+
+[latexmath#eq-figures-definition, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+a(b,r_0,n)=\{a_1 ,\dots ,a_{\alpha}\}
+=
+\{\frac{br_{i-1}-r_i}{n}\}_{i=1}^{\alpha}
+\end{equation}
+++++
+
+O lado mais à direita de <<eq-figures-definition>> contém  expressões que correspondem, respectivamente, à cada uma das  congruências em <<eq-s-matrix>>.
+
+Das primeiras duas congruências em <<eq-s-matrix>>, vem
+
+[latexmath#eq-s-matrix-first-row, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+br_0-r_1=na_1
+\end{equation}
+++++
+
+e
+
+[latexmath#eq-s-matrix-second-row, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+br_1-r_2=na_2
+\end{equation}
+++++
+
+Então,
+
+[latexmath#eq-from-first-and-second-rows, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+b(br_0-na_1)-r_2=na_2
+\end{equation}
+++++
+
+ou
+
+[latexmath#eq-from-first-and-second-rows-either, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+b^2r_0-bna_1-na_2=r_2
+\end{equation}
+++++
+
+A equação <<eq-from-first-and-second-rows-either>> colocada na expressão que vem da terceira congruência produz
+
+[latexmath#eq-mixing-equations-1, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+b(b^2r_0-bna_1-na_2)-r_3=na_3
+\end{equation}
+++++
+
+ou
+
+[latexmath#eq-mixing-equations-2, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+b^3r_0-b^2na_1-bna_2-na_3=r_3
+\end{equation}
+++++
+
+Agora, suponhamos, por indução, que tenhamos encontrado para latexmath:[r_i], a seguinte expressão
+
+[latexmath#eq-r_i-expression, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+r_i=b^ir_0-n\sum_{j=1}^ib^{i-j}a_j
+\end{equation}
+++++
+
+A expressão que vem da congruência na linha i+1 de <<eq-s-matrix>> é
+
+[latexmath#eq-i-plus-1-row, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+br_i-r_{i+1}=na_{i+1}
+\end{equation}
+++++
+
+Colocando <<eq-r_i-expression>> em <<eq-i-plus-1-row>>, obtemos
+
+[latexmath#eq-mixing-3, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+b^{i+1}r_0-n\sum_{j=1}^ib^{i+1-j}a_j-na_{i+1}=r_{i+1}
+\end{equation}
+++++
+
+ou 
+
+[latexmath#eq-mixing-4, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+b^{i+1}r_0-n\sum_{j=1}^{i+1}b^{i+1-j}a_j=r_{i+1}
+\end{equation}
+++++
+
+como desejávamos.
+
+Deste modo, <<eq-r_i-expression>> é válida para qualquer latexmath:[\Large i] e se latexmath:[\Large i=\alpha], obtemos dela, de volta, o nosso latexmath:[\Large k], pois, claramente, temos
+
+[latexmath#eq-r_i-expression-1, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+b^{\alpha}r_0-r_{\alpha}=n\sum_{j=1}^{\alpha}b^{\alpha-j}a_j = nk
+\end{equation}
+++++
+
+A prova da unicidade de latexmath:[\Large k] é feita como na prova 1. C.Q.D.
+****
+
+
+****
+*_Corolário 2 do Teorema <<co-2-th-32>>_*:
+
+Se latexmath:[\Large k] é a constante única associada a latexmath:[\Large r=1], então, latexmath:[\Large r'k] é a constante única associada a latexmath:[\Large r'], desde que latexmath:[\Large 1\le r'<n]. E, latexmath:[\Large r'k] tem de ser a expressão dos algarismos associada à sequência latexmath:[\Large s(b,r',n)].
+
+*_Prova_*:
+
+Se latexmath:[\Large r_0=1], então, a equação <<eq-r_i-formula-2>> do Teorema <<co-2-th-32>> é
+
+[latexmath#eq-3-th-32-transformed, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+b^{\alpha}-1=n\cdot k
+\end{equation}
+++++
+
+Deste modo, latexmath:[\Large k] é a expressão dos algarismos associada à latexmath:[\Large s(b,1,n)].
+
+Se latexmath:[\Large r'] satisfaz a inequação dada na proposição, então, latexmath:[\Large r'] é um dos latexmath:[\Large n-1] restos módulo latexmath:[\Large n]. Assim, se o multiplicarmos por <<eq-3-th-32-transformed>>, acabamos obtendo a congruência
+
+[latexmath#eq-3-congruence, reftext={counter: eq}]
+++++
+\Large
+\begin{equation}
+b^{\alpha}r'\equiv r'\ (mod\ n)
+\end{equation}
+++++
+
+com constante latexmath:[\Large r'\cdot k].
+
+Mas, de acordo com o Corolário 1 do Teorema <<co-2-th-32>>, esta constante é única e deve ser a expressão algarísmica de latexmath:[\Large s(b,r',n)].
+
+Vamos mencionar, de antemão, que seja qual for o latexmath:[\Large r'] escolhido, de acordo com o segundo caso da equação <<eq-th-6-1>> do Teorema <<th-6>>, um latexmath:[\Large r' > 1] contribuiria para diminuir o valor da função “maior inteiro”. Ocorre que latexmath:[\Large s(b,1,n)] “tem” um falso período de tamanho nulo - o menor tamanho possível para um falso período. Assim, latexmath:[\Large s(b,r',n)] não terá um falso período - como desejamos.
+****

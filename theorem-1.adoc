@@ -1,0 +1,277 @@
+:cor: {counter: co: 0}
+== Uma Fórmula para o Cálculo Direto dos Restos de s
+
+A sequência latexmath:[\large s(b,m,n)] é uma sequência infinita que é composta pela justaposição de infinitas subsequências finitas. Este é um fato diretamente observável na dízima de latexmath:[\large \frac{m}{n}] e repetitível já que, cada vez que calculamos latexmath:[\large \frac{m}{n}], podemos constatar que há latexmath:[\large \alpha(b,m,n)] algarismos dizimais que se repetem na mesma ordem.
+
+Com o que temos, até agora, se quisermos conhecer o elemento latexmath:[\large i] de latexmath:[\large s=\{r_i\}_{i=0}^{\infty}], temos que calcular cada um dos seus elementos separadamente, ou seja, temos que realizar latexmath:[\large i] cálculos a partir de latexmath:[\large r_0] se desejamos conhecer o elemento latexmath:[\large i] de latexmath:[\large s].
+
+Mas, podemos dar um passo além e verificar uma fórmula simples
+
+// :equ: {counter: eq}
+// [[eq-r_i-formula, {equ} ]]
+[latexmath#eq-r_i-formula, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+r_i
+\equiv
+b^{i}
+\cdot
+r_0
+(mod\ \ n)
+\end{equation}
+++++
+// ({equ})
+
+com a qual conseguiremos calcular qualquer um dos elementos latexmath:[\large r_i=s_i] de latexmath:[\large s] de uma única feita. Veremos que esta pequena fórmula interessante é muito mais útil analiticamente do que operacionalmente. É que tanto bases quanto expoentes podem ficar muito grandes e inviabilizar o seu tratamento em nível numérico.
+
+Mas, veremos que esta pequena fórmula nos renderá uns bons avanços na direção em que queremos seguir. Para isto, vamos provar o seguinte teorema.
+
+:the: {counter: th}
+[[th-1, {the} ]]
+****
+*_Teorema {the}_*:
+
+// :equ: {counter: eq}
+// [[eq-th-1-proposition, {equ} ]]
+[latexmath#eq-th-1-proposition,reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+s(b,r_0,n)
+\ \ =\ \ 
+\{r_i\}_{i=0}^{\infty }
+\Longleftrightarrow
+s_i=
+r_i
+\equiv
+b^{i}
+\cdot
+r_0
+(mod\ \ n)
+\end{equation}
+++++
+// ({equ})
+
+*_Prova_*:
+Parte latexmath:[\large \Longrightarrow].
+
+Do Teorema Fundamental, sabe-se que para cada latexmath:[\large i]
+
+// :equ: {counter: eq}
+// [[eq-th-1-1, {equ} ]]
+[latexmath#eq-th-1-1,reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+s(b,r_0,n)
+\ \ =\ \ 
+\{r_i\}_{i=0}^{\infty }
+\biconditional
+b\cdot r_i\equiv r_{i+1}(mod\ \ n)
+\end{equation}
+++++
+// ({equ})
+
+Logo, a primeira congruência de latexmath:[\large s] é
+
+// :equ: {counter: eq}
+// [[eq-th-1-2, {equ} ]]
+[latexmath#eq-th-1-2, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+b
+\cdot
+r_0
+\equiv
+r_1
+(mod\ \ n)
+\end{equation}
+++++
+// ({equ})
+
+A segunda congruência de latexmath:[\large s] é
+
+// :equ: {counter: eq}
+// [[eq-th-1-3, {equ} ]]
+[latexmath#eq-th-1-3, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+b
+\cdot
+r_1
+\equiv
+r_2
+(mod\ \ n)
+\end{equation}
+++++
+// ({equ})
+
+Agora, suponha, por indução, que tenhamos verificado que <<eq-th-1-1>> vale até latexmath:[\large i-1], de modo que valha
+
+// :equ: {counter: eq}
+// [[eq-th-1-4, {equ} ]]
+[latexmath#eq-th-1-4, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+b^{i-1}
+\cdot
+r_0
+\equiv
+r_{i-1}
+(mod\ \ n)
+\end{equation}
+++++
+// ({equ})
+
+Mas, a congruência latexmath:[\large i] de latexmath:[\large s] é
+
+// :equ: {counter: eq}
+// [[eq-th-1-5, {equ} ]]
+[latexmath#eq-th-1-5, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+b
+\cdot
+r_{i-1}
+\equiv
+r_i
+(mod\ \ n)
+\end{equation}
+++++
+// ({equ})
+
+Substituindo  de <<eq-th-1-4>> em <<eq-th-1-5>>, obtém-se o lado direito da equivalência lógica do teorema.
+
+Parte latexmath:[\large \Longleftarrow].
+
+Se se tem o lado direito da equivalência lógica deste Teorema para todo latexmath:[\large i], então, para cada latexmath:[\large i>0] podemos escrever
+
+// :equ: {counter: eq}
+// [[eq-th-1-6, {equ} ]]
+[latexmath#eq-th-1-6, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+(mod\ \ n)
+s_i=
+r_i
+\equiv
+b^{i}
+\cdot
+r_0
+\equiv
+b\cdot (b^{i-1}\cdot r_0)
+\equiv
+b\cdot r_{i-1}
+\end{equation}
+++++
+// ({equ})
+
+que de acordo com <<eq-th-1-1>> implica no lado esquerdo da dupla implicação deste teorema, C.Q.D.
+****
+
+=== Alguns Corolários
+
+O corolário a seguir é só a formalização do que já devíamos estar esperando: multiplicar, módulo n, qualquer latexmath:[\large r_i\in s] por latexmath:[\large b^j], leva ao resto que está na posição latexmath:[\large j] depois do resto latexmath:[\large r_i], ou seja, leva ao resto latexmath:[\large r_{i + j}].
+
+:cor: {counter: co}
+[[co-1-th-1, {cor} ]]
+****
+*_Corolário {cor} do Teorema <<th-1>>_*:
+
+// :equ: {counter: eq}
+// [[eq-1-co-1-th-1, {equ} ]]
+[latexmath#eq-1-co-1-th-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+r_{i+j}
+\equiv
+b^{j}
+\cdot
+r_i
+(mod\ \ n)
+\end{equation}
+++++
+// ({equ})
+
+*_Prova_*:
+O lado direito da dupla implicação em <<eq-th-1-1>>, nos permite escrever, módulo n, a seguinte agradável congruência
+
+// :equ: {counter: eq}
+// [[eq-2-co-1-th-1, {equ} ]]
+[latexmath#eq-2-co-1-th-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+b^j
+r_{i}
+\equiv
+b^j
+b^{i}
+r_0
+
+\Longrightarrow
+
+b^j
+r_{i}
+\equiv
+b^{i+j}
+r_0
+
+\Longrightarrow
+b^j
+r_{i}
+\equiv
+r_{i+j}
+\end{equation}
+++++
+// ({equ})
+
+C.Q.D.
+****
+
+O corolário seguinte apenas formaliza o que já sabemos, de coração, que é: a latexmath:[\large \alpha] posições após um resto latexmath:[\large r_i], encontramos o mesmo resto latexmath:[\large r_i] novamente.
+
+:cor: {counter: co}
+[[co-2-th-1, {cor} ]]
+****
+*_Corolário {cor} do Teorema <<th-1>>_*:
+Seja latexmath:[\large \alpha] o número de elementos no período verdadeiro de latexmath:[\large s] e seja latexmath:[\large r_i\in s] qualquer resto deste período verdadeiro, ou seja, latexmath:[\large \tilde{\alpha}\le i]. Então,
+
+// :equ: {counter: eq}
+// [[eq-1-co-2-th-1, {equ} ]]
+[latexmath#eq-1-co-2-th-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+b^{\alpha}r_i\equiv r_i(mod\ \ n)
+\end{equation}
+++++
+// ({equ})
+
+*_Prova_*:
+
+Do Corolário <<co-1-th-1>>, podemos escrever
+
+// :equ: {counter: eq}
+// [[eq-2-co-2-th-1, {equ} ]]
+[latexmath#eq-2-co-2-th-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+b^{\alpha}
+r_{i}
+\equiv
+r_{\alpha+i}
+\end{equation}
+++++
+// ({equ})
+
+mas, como latexmath:[\large r_i] pertence ao período verdadeiro e este tem latexmath:[\large \alpha] elementos, segue que latexmath:[\large r_i=r_{i+\alpha}]. Daí, vem o resultado que desejamos. C.Q.D.
+****

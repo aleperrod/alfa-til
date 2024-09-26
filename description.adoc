@@ -1,0 +1,10 @@
+É possível calcular o número de algarismos que há na dízima de qualquer número racional.
+Sempre há uma sequência de algarismos que se repetem. E, às vezes, aparece uma outra sequência, logo no início da dízima, que ocorre uma única vez. Podemos calcular o número de algarismos de ambas!
+
+Foi observando estas duas sequências, que, muitos anos atrás, eu quis encontrar a fórmula que desse aquelas exatas quantidades de algarismos.
+
+//Os primeiros _insights_ sobre como chegar em tais fórmulas, me ocorreram muito  demoradamente, mas esta demora inicial, foi, eventualmente, compensada por pequenas descobertas e pela beleza e verdade das equações que encontrei.
+
+Eu, eventualmente, obtive as tais fórmulas, mas, obtive, não apenas as fórmulas, mas beleza e verdade em uma teoria, ainda em desenvolvimento, que matematiza propriedades e quantidades envolvidas na escrita dos números. Eu, pessoalmente, tenho chamado todo este trabalho de contagem de algarismos de _Teoria Alfa_, pois, o nome que dei, provisoriamente, muito tempo atrás, às formulas, emprega a letra grega alfa.
+
+Assim, convido o leitor interessado a adentrar comigo, nas páginas deste primeiro livro, que aborda o fundamento da teoria alfa e termina com a exibição da fórmula do número de algarismos do período falso e o caminho que leva até ela. Tudo o que virmos aqui, servirá de base ao conteúdo do próximo livro que, na opinião deste autor, é a parte principal e mais interessante de toda a teoria.

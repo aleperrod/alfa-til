@@ -1,0 +1,355 @@
+////
+== Um Algoritmo para Determinar se um Número é Primo
+
+Os conhecimentos que auferimos a partir o Teorema <<th-6>> nos abrem, agora, a possibilidade de divisarmos um método (o algoritmo) com o qual poderemos determinar se um número, latexmath:[\large b], é primo.
+
+Isto é possível, pois o teorema <<th-6>> nos mostrou a relação que há entre o número de elementos no falso período e a existência de fatores comuns entre o denominador, latexmath:[\large n], e a base, latexmath:[\large b], ou seja, sempre que estes fatores comuns existirem, latexmath:[\large \tilde{\alpha}(b,r,n)\ge 1].
+////
+== Um Teste de Primalidade com Base no Número latexmath:[\Large\widetilde{\alpha}]
+
+Os conhecimentos que auferimos a partir o Teorema <<th-6>> nos abrem, agora, a possibilidade de construirmos um algoritmo com o qual poderemos determinar se um número, latexmath:[\large b], é primo ou, caso contrário, achar todos os seus divisores.
+
+Isto é possível, pois o teorema <<th-6>> nos mostrou a relação que há entre o número de elementos no falso período e a existência de fatores comuns entre o denominador, latexmath:[\large n], e a base, latexmath:[\large b], ou seja, sempre que estes fatores comuns existirem, latexmath:[\large \tilde{\alpha}(b,r,n)\ge 1].
+
+Além disto, uma peça-chave do algoritmo que apresentaremos será dada no próximo teorema. Trata-se de um fato que conhecemos bem, na base 10, e segundo o qual, às vezes, a parte quebrada de uma fração latexmath:[Large \frac{r}{n}] tem, ou não, um falso período, ou seja, latexmath:[\large \tilde{\alpha}(b,r,n)\ge 0], e todos os demais algarismos - os do período verdadeiro - são nulos. Na escola, normalmente se diria, como já observamos, que tal dízima é finita e não periódica, ou, se latexmath:[\large r_1=0], que latexmath:[\Large \frac{r}{n}] é um inteiro.
+
+Neste caso, como veremos, os restos do período verdadeiro também são todos nulos. E, na verdade, a sequência de restos do período verdadeiro de latexmath:[\large s], bem como a sequência de algarismos latexmath:[\large a] do mesmo período verdadeiro, ao invés de serem finitas, são infinitas de período igual a latexmath:[\large {0}].
+
+Quando um número latexmath:[\large n] divide um outro número, o resto, latexmath:[\large r_1], desta divisão é nulo. Sabemos disto "_desde sempre_"! O ponto aqui, é que, agora, este fato básico aparece enquadrado em um esquema mais geral e, junto com outro fato que exporemos no Teorema <<th-21>>, abaixo, poderá ser utilizado para sondar não só a divisibilidade mas, antes, também a ocorrência de fatores comuns entre latexmath:[\large n] e latexmath:[\large b] - o que exporá o fato, caso ele ocorra, de que a base latexmath:[\large b] não é um número primo.
+
+O seguinte Teorema <<th-21>> aborda o efeito que se observa nos restos quando o produto latexmath:[\large br_0] e o denominador têm, um com o outro, todos os fatores primos em comum.
+
+:the: {counter: th}
+[[th-21, {the} ]]
+****
+*_Teorema {the}_*:
+Para qualquer latexmath:[\large r_0, b\in \mathbb{N}-{0}],
+
+latexmath:[\large br_0] tem todos os fatores primos de latexmath:[\large n] - independentemente dos expoentes com que apareçam na fatoração prima de latexmath:[\large br_0] -, se, e somente se, o período verdadeiro de latexmath:[\large s(b,r_0,n)] é {0}.
+
+*_Prova_*:
+Parte latexmath:[\large \Longrightarrow]
+
+Vários elementos do presente argumento já estão incluídos na prova do Teorema <<th-6>>.
+
+A equação <<eq-th-6-3>> do Teorema 6 é
+
+// :equ: {counter: eq}
+// [[eq-th-21-1, {equ} ]]
+[latexmath#eq-th-21-1, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+\frac{b^ir_0-r_i}{n}
+\ \ =\ \ 
+\frac{(\prod_{c=1}^{\tau}p_c^{e_{b,c}})^i
+\prod_{c=1}^{\tau}p_c^{e_{r_0,c}}
+-r_i
+}
+{
+\prod_{c=1}^{\tau}p_c^{e_{n,c}}
+}
+\ \ =\ \ 
+\frac{\prod_{c=1}^{\tau}p_c^{ie_{b,c}+e_{r_0,c}}
+-r_i
+}
+{
+\prod_{c=1}^{\tau}p_c^{e_{n,c}}
+}
+\in \mathbb{Z}
+\end{equation}
+++++
+//({equ})
+
+Por hipótese, não podem ser nulos os expoentes, latexmath:[\large e_{b,c}], daqueles fatores primos de latexmath:[\large b], latexmath:[\large p_c], que estejam também presentes em latexmath:[\large n].
+
+O expoente  latexmath:[\large i\ge 0] cresce sem limites.
+
+De acordo com o Teorema <<th-6>>, o número de restos no falso período de latexmath:[\large s(b,r,n)] equivale ao menor latexmath:[\large i] inteiro que seja maior que latexmath:[\large \frac{e_{n,c}-e_{r_0,c}}{e_{b,c}}], o que, como vimos, equivale àquele primeiro latexmath:[\large i] que torna todos os expoentes de qualquer fator primo em latexmath:[\large b] maior ou igual que qualquer dos expoentes, latexmath:[\large e_{n,c}], respectivos nos fatores primos também respectivos de latexmath:[\large n]. Quando isto acontece, latexmath:[\large e_{n,c}] se torna mínimo para todo o latexmath:[\large c] e aí, teremos que ter o seguinte
+
+// :equ: {counter: eq}
+// [[eq-th-21-2, {equ} ]]
+[latexmath#eq-th-21-2, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+mdc(
+\prod_{c=1}^{\tau}p_c^{ie_{b,c}+e_{r_0,c}}
+,
+\prod_{c=1}^{\tau}p_c^{e_{n,c}}
+)
+=
+\prod_{c=1}^{\tau}p_c^{e_{n,c}}
+\end{equation}
+++++
+//({equ})
+
+Mas se o lado direito de <<eq-th-21-2>>, que é latexmath:[\large n] de acordo com <<eq-th-21-1>>, divide o produtório que está no numerador do membro direito da igualdade em <<eq-th-21-1>>, então devemos ter também
+
+// :equ: {counter: eq}
+// [[eq-th-21-3, {equ} ]]
+[latexmath#eq-th-21-3, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+n | r_i
+\end{equation}
+++++
+//({equ})
+
+Então, é forçoso concluir-se que
+
+// :equ: {counter: eq}
+// [[eq-th-21-4, {equ} ]]
+[latexmath#eq-th-21-4, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+r_i\equiv 0(mod\ \ n)
+\end{equation}
+++++
+//({equ})
+
+o que só pode ser verdadeiro se
+
+// :equ: {counter: eq}
+// [[eq-th-21-5, {equ} ]]
+[latexmath#eq-th-21-5, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+r_i= 0
+\end{equation}
+++++
+//({equ})
+
+A equação <<eq-th-21-5>> vale para qualquer latexmath:[\large i\ge \widetilde{\alpha}].
+
+Logo, após o falso período, se houver um, seguir-se-á uma sequência infinita de zeros. Ou seja, o período verdadeiro calculado a cada latexmath:[\large r_i] que se repete é latexmath:[\large {0}].
+
+Parte latexmath:[\Longleftarrow].
+
+Seja latexmath:[\large r_i=0] para todo o latexmath:[\large i\ge \tilde{\alpha}].
+
+Então, podemos escrever <<eq-th-21-1>> assim
+
+// :equ: {counter: eq}
+// [[eq-th-21-6, {equ} ]]
+[latexmath#eq-th-21-6, reftext={counter: eq}]
+++++
+\large
+\begin{equation}
+\frac{b^ir_0}{n}
+\ \ =\ \ 
+\frac{\prod_{c=1}^{\tau}p_c^{ie_{b,c}+e_{r_0,c}}
+}
+{
+\prod_{c=1}^{\tau}p_c^{e_{n,c}}
+}
+\in \mathbb{Z}
+\end{equation}
+++++
+//({equ})
+
+Logo, latexmath:[\large n|b^i r_0] para todo latexmath:[\large i\ge \tilde{\alpha}], ou seja, latexmath:[\large b^i r_0] tem todos os fatores primos de latexmath:[\large n].
+
+Por fim, é fácil ver que se para latexmath:[\large i\ge \tilde{\alpha}], latexmath:[\large b^i r_0] tem, de fato, todos os fatore primos de latexmath:[\large n], e que estes fatores devem ter estado presentes em latexmath:[\large b^i r_0], com algum expoente não nulo, quando latexmath:[\large 0\le i< \tilde{\alpha}], CQD.
+****
+
+O próximo Teorema <<th-39>> contém o cerne do algoritmo que delinearemos. Ele afirma e prova uma verdade muito acessível: se a fração latexmath:[\large \frac{r}{n}] não exibe um período falso para qualquer denominador latexmath:[\large n\in \{2,..., b-1\}], então, latexmath:[\large b] é um número primo. E, deste modo, somos capazes de determinar se um número é primo ou composto, apenas fazendo cotinhas de divisão! Isto é algo surpreendente ainda que latexmath:[\Large \frac{r}{n}] deva ser expressa numa, não usual, base latexmath:[\large b \neq 10].
+
+:the: {counter: th}
+[[th-39, {the} ]]
+****
+*_Teorema {the}_*:
+Sejam latexmath:[\large n,b>1]. Então,
+
+latexmath:[\large \tilde{\alpha}(b,r,n)=0] para todo latexmath:[\large n\in \{2,...,b-1\}] e, para qualquer latexmath:[\large r], se, e somente se, latexmath:[\large b] é primo.
+
+*_Prova_*:
+Parte latexmath:[\large \Longrightarrow].
+
+Se latexmath:[\large \tilde{\alpha}(b,r,n)=0], então latexmath:[\large s(b,r,n)] não tem um falso período, seja qual for o latexmath:[\large r], e todos os restos de latexmath:[\large s] são os do período verdadeiro.
+
+Neste caso, de acordo com o Teorema <<th-6>>, os expoentes dos fatores primos comuns a latexmath:[\large n] e latexmath:[\large b] são todos nulos, ou seja, latexmath:[\large n\nmid b] e, por hipótese, isto deve ser verdade para todo latexmath:[\large n\in \{2,...,b-1\}]. Então, apenas latexmath:[\large 1] e latexmath:[\large b] dividem latexmath:[\large b]. Logo, latexmath:[\large b] é primo.
+
+Parte latexmath:[\large \Longleftarrow].
+
+Se latexmath:[\large b] é primo, então latexmath:[\large n\nmid b] para latexmath:[\large n\in \{2,...,b-1\}]. Então, os expoentes dos fatores primos comuns de latexmath:[\large b] e latexmath:[\large n] são todos nulos. Do Teorema <<th-6>>, segue que latexmath:[\large \tilde{\alpha}(b,r,n)=0] .
+****
+=== Um Método para Determinar se um Número é Primo ou Descobrir os seus Divisores se Ele for Composto
+
+==== O Algoritmo "_Básico_"
+////
+O algoritmo seguinte visa a determinar se um número latexmath:[\large b] é primo ou não. Se latexmath:[\large b] for composto, o algoritmo achará todos os divisores de latexmath:[\large b].
+
+A entrada do algoritmo é o número latexmath:[\large b] que se deseja testar e um número latexmath:[\large r\in\{1,\dots ,n-1 \}] - o qual, no entanto, exceto por razões especiais, será sempre a unidade, o que simplificará os cálculos. Durante a execução do algoritmo, os números latexmath:[\large n\in\{2,\dots, b-1\}] poderão ser utilizados.
+
+O leitor verá, logo abaixo, que utilizaremos latexmath:[\large B=\left\lceil\sqrt{b}\right\rceil] (_função "Menor Inteiro"_, ou seja, "_latexmath:[\large B] é o maior inteiro que é menor ou igual que latexmath:[\sqrt{b}]_") em lugar de latexmath:[\large b]. Isto, diminui pela metade o número de passos do algoritmo e tem a ver com um critério que é conhecido como o Crivo de Erastóstenes. Não entrarei nos seus detalhes aqui. O seu entendimento é simples, o seu enunciado preciso e explicações sumárias podem ser encontradas online, e o seu uso é imediato. O crivo tem a ver com a constatação de que se um número é composto, então, pelo menos, um dos seus divisores deve ser menor do que a sua raiz quadrada. Deste modo, se você estiver testando divisores, em ordem crescente, e não encontrar qualquer um que seja menor ou igual à raiz, então, não é preciso testar mais pois, não haverão outros divisores, em virtude de o tal número ser primo!
+////
+
+O algoritmo seguinte visa a determinar se um número latexmath:[\large b] é primo ou não. Se latexmath:[\large b] for composto, o algoritmo achará todos os divisores de latexmath:[\large b].
+
+A entrada do algoritmo é o número latexmath:[\large b] que se deseja testar e um número latexmath:[\large r\in\{1,\dots ,n-1 \}] - o qual, no entanto, exceto por razões especiais, será sempre a unidade, o que simplificará os cálculos. Quando fazemos latexmath:[\large r_0=1], a base latexmath:[\large b] passa a fazer as vezes do numerador! Veja o lado mais à esquerda de <<eq-th-21-1>> para apreciar este fato simples. Durante a execução do algoritmo, os números latexmath:[\large n\in\{2,\dots, b-1\}] poderão ser utilizados.
+
+O número latexmath:[\large b] é, de fato, a base em que a fração latexmath:[\Large \frac{r}{n}] é expressa e por esta razão utilizei o trocadilho no título desta Seção.
+
+O leitor verá, logo abaixo, que utilizaremos latexmath:[\large \left\lceil\sqrt{b}\right\rceil] (_função "Menor Inteiro"_, ou seja, "_o maior número inteiro que é menor ou igual que latexmath:[\large \sqrt{b}]_") em lugar de latexmath:[\large b]. Isto, diminui pela metade o número de passos gerais do algoritmo e tem a ver com um critério que é conhecido como o Crivo de Erastóstenes. Não entrarei nos seus detalhes aqui. O seu entendimento é simples, o seu enunciado preciso e explicações sumárias podem ser encontradas online, e o seu uso é imediato. O crivo tem a ver com a constatação de que se um número é composto, então, pelo menos, um dos seus divisores deve ser menor do que a sua raiz quadrada. Deste modo, se você estiver testando divisores, em ordem crescente, e não encontrar qualquer um que seja menor ou igual à raiz, então, não é preciso testar mais, pois, não haverão outros divisores, em virtude de o tal número ser primo!
+
+:alg: {counter: al}
+[[al-prime-base, {alg} ]]
+****
+*_Algoritmo {alg} (Básico)_*:
+
+1. Tome o número latexmath:[\large b] que será testado.
+.. Fixe latexmath:[\large r=1] e inicialize latexmath:[\large n] com o primeiro inteiro do conjunto latexmath:[\large \{2, ..., b-1\}], ou seja,  latexmath:[\large n\leftarrow 2].
+2. Calcule latexmath:[\large s(b,1,n)] até o resto de índice latexmath:[\large \tilde{\alpha}+\alpha].
+.. Se latexmath:[\large \tilde{\alpha}>0] ou latexmath:[\large 0\in s], então, o número *latexmath:[\large b] é composto*!
+... Se latexmath:[\large s\ni 0=r_1], então, *latexmath:[\large n] é um divisor de latexmath:[\large b]*.
+.... Faça latexmath:[\large n\leftarrow n+1].
+.... Calcule latexmath:[\large s(b,1,n)] até o resto de índice latexmath:[\large \tilde{\alpha}+\alpha].
+.... Repita o item 2.a.i enquanto latexmath:[\large n\le b-1].
+3. Faça latexmath:[\large n\leftarrow n+1].
+4. Repita o item 2 enquanto latexmath:[\large n\le\left\lceil\sqrt{b}\right\rceil].
+.. Se latexmath:[\large n=\left\lceil\sqrt{b}\right\rceil], então, *latexmath:[\large b] é primo*!
+****
+
+=== Explicação de Cada Passo do Algoritmo <<al-prime-base>>
+
+1. Neste passo, escolhemos o valor latexmath:[\large r=1], como já havíamos mencionado. Isto decorre da liberdade trazida pelo Teorema <<th-39>> para se escolher qualquer valor para latexmath:[\large r]. Também inicializamos o valor de latexmath:[\large n] com latexmath:[\large 2] e indicamos este fato com os símbolos latexmath:[\large n\leftarrow 2]. Esta é a notação utilizada para designar a atribuição de um valor a uma variável.
+
+2. Este passo é o mais trabalhoso. Nele, precisamos calcular os restos de latexmath:[\large s]. Isto pode ser feito de três formas. Podemos utilizar a fórmula <<eq-r_i-formula>> que foi provada no Teorema <<th-1>> ou podemos fazer a continha da divisão de latexmath:[\large r] por latexmath:[\large n] na base latexmath:[\large b], como indicado no modelo <<tab-npord>>, apenas usando latexmath:[\large b] em lugar de latexmath:[\large 10] e _mantendo um olho_ nos restos da divisão, ou ainda, calculando cada uma da congruências tal como feito em <<eq-congruencias-2>>.
+Já vimos que latexmath:[\large s] pode ter ou não um falso período. Em todo o caso, os cálculos devem ser feitos cuidando-se em observar a primeira vez em que um resto _repete_ um resto previamente calculado. Aí, é a hora de parar de calculá-los. Vimos isto no Teorema <<th-fundamental>>: os restos do período verdadeiro são periódicos. Procedendo assim, fatalmente, acabaremos calculando os latexmath:[\large \tilde{\alpha}] restos do possível período falso, caso haja um, e os latexmath:[\large \alpha] restos do período verdadeiro. Portando, acabaremos calculando latexmath:[\large \tilde{\alpha}+\alpha] restos, ainda que tenhamos latexmath:[\large \tilde{\alpha}=0], eventualmente.
+.. Sabemos dos teoremas <<th-6>> e <<th-21>> que se latexmath:[\large \tilde{\alpha}>0] ou algum resto de latexmath:[\large s] for nulo, então, a base latexmath:[\large b] e o diverso denominador latexmath:[\large n] têm fatores primos em comum. *Se o teste feito neste item for verdadeiro e não se deseja conhecer os divisores de latexmath:[\large b], o algoritmo pode parar imediatamente, pois já sabemos que latexmath:[\large b] não é primo*.
+... Sabemos também que se o resto latexmath:[\large r_1\in s] for nulo, então, latexmath:[\large n] deve dividir perfeitamente o numerador que, neste caso, é, como vimos, latexmath:[\large b]. *Veja que se o teste feito neste ponto for verdadeiro, o algoritmo não sai mais do item 2.a.i e seus subitens*.
+.... Aumente o valor de latexmath:[\large n] em uma unidade e atribua este valor a latexmath:[\large n].
+.... Já explicado.
+.... Como pode haver fatores de latexmath:[\large b] maiores que latexmath:[\large \sqrt{b}], e queremos justamente descobrir estes fatores, devemos seguir iterando os cálculos até depois deste limiar.
+3. Significado já explicado.
+4. Aqui, como ainda não se descobriu divisores de latexmath:[\large b], o limiar máximo será latexmath:[\large \sqrt{b}]
+. Atingindo-se o limiar, latexmath:[\large b] pode ser declarado um primo.
+
+=== Algumas Observações
+
+O Algoritmo <<al-prime-base>> apresentado acima ainda não é ótimo. Esta ainda não é a sua melhor versão. Para começar, ele ainda faz, pelo menos, latexmath:[\large \tilde{\alpha}+\alpha] cálculos a cada latexmath:[\large n\in \{2,..., b-1\}]. Isto pode ser melhorado! Em parte, esta limitação se deve ao fato de estarmos encapsulando em nosso algoritmo e, consequentemente, no código abaixo, o <<code-noverd>> inteiro, já pronto, que escrevemos acima para o cálculo de latexmath:[\large s].
+
+Só isto já mostra que entre uma teorização matemática e uma correspondente realização concreta pode haver uma distância grande, tanto maior quanto mais otimizada for a realização e mais ajustada a exigências concretas. Mas, por ora, a versão atual serve como prova da sanidade da teoria que está por trás dela. Logo, elementos deste algoritmo serão utilizados em algoritmos mais otimizados. Mas, antes disto, temos que desenvolver um pouco mais a teoria.
+
+O algoritmo acima e o código abaixo servem para se descobrir primos. Assim, faz sentido ajustá-lo para ser possível opera-lo apenas em modo de _descoberta_. Neste caso, poderíamos criar um banco de dados para armazenar os primos já descobertos e testar novos candidatos a primo com base neste banco de modo a diminuir o número de cálculos do teste e, deste modo, torna-lo mais rápido.
+
+=== O Algoritmo <<al-prime-base>> em Código
+
+.O Algoritmo <<al-prime-base>> em Python.
+[[code-prime-base, Algoritmo Básico em Python]]
+[source,python,linenums]
+----
+def is_b_prime(b):
+  '''
+    Tests the base primality.
+    This test is not optimal yet. It makes alpha + aplha-tilde calculuses for each d in {2,...,limit}.
+    But it serves as a proof of soundness of the theory behind it.
+    Args:
+      b: base to be tested.
+    Returns:
+      Two possible outcomes:
+        divisors: list of all b divisors, in case b is composite. Or,
+        'prime': string whose meaning is clear. 
+  '''
+
+  primality = 'indefinite'
+  divisors = []
+  limit = int(b**(0.5)) + 1 # Erastosthenes sieve limit.
+  for d in range(2, b):
+    nod = n_over_d(1, d, b=b)
+    if nod['alpha-tilde'] == 1 and 0 in nod['repeating remainders']:
+      primality = 'composite'
+      divisors.append(d)
+    elif nod['alpha-tilde'] > 0:
+      primality = 'composite'
+    elif primality == 'indefinite' and d > limit:
+      primality = 'prime'
+      break
+
+  if primality == 'composite':
+    return divisors
+  else:
+    return 'prime'
+----
+
+=== Exercícios
+
+Exercício 1:: Conceba uma outra solução, em código, que calcule todos os primos até um número limite, latexmath:[\large b], dado como argumento de entrada. Os primos calculados devem ser armazenados ordenadamente de modo permanente. O algoritmo deve utilizar apenas este _banco de dados_ permanente para a descoberta de primos maiores do que todos os já armazenados - isto tende a reduzir o tempo de execução da busca por primos novos, pois não testa sobre todos os inteiros; testa apenas sobre os primos já conhecidos. E, deve simplesmente informar a lista dos primos menores ou iguais a latexmath:[\large b], se latexmath:[\large b] for menor ou igual que o maior primo já armazenado. O algoritmo pode começar com um banco de dados já alimentado com uma lista, ordenada por tamanho, de todos os primeiros primos que o leitor conheça.
+
+Solução::
+[[code-prime-search-and-sava, Código Para Sondagem e Armazenamento de Números Primos]]
+[source,python,linenums]
+.Código para sondagem e armazenamento de números primos em Python.
+----
+def all_primes_until_b_with_DB(b, DB_name = ''):
+  '''
+    Searches all primes til base b, inclusive.
+    Feeds an ordered prime list if it exists; otherwise, creates one.
+    Saves the ordered list for future use.
+    Finds new primes using just the primes already saved.
+    Args:
+      b: integer number until which search is made.
+      DB_name: name of the database file.
+    Returns:
+      A list of all primes til b.
+  '''
+  known_primes = []
+  if DB_name == '':
+    DB_name = 'prime_database.pkl'
+    known_primes = [2,3,5,7,11,13,17,19,23]
+    print(f'Nenhum banco de primos foi informado! O conjunto inicial, mínimo de primos, {known_primes}, será utilizado.')
+  else:
+    try:
+      with open(DB_name, 'rb') as f:
+        known_primes = pickle.load(f)
+        print("Objeto carregado com sucesso.")
+    except FileNotFoundError:
+      print(f"Erro: o arquivo {DB_name} não foi encontrado.")
+      return
+    except pickle.UnpicklingError:
+      print(f"Erro ao desempacotar o arquivo {DB_name}. Ele pode estar corrompido ou seu conteúdo não ser compatível.")
+      return
+  
+  if known_primes == []:
+    known_primes = [2,3,5,7,11,13,17,19,23]
+  if b <= known_primes[-1]:
+    return [i for i in known_primes if i <= b]
+  
+  primality = 'indefinite'
+  n1 = known_primes[-1] + 2
+  new_primes = []
+  for i in range(n1, b + 1):
+    for j in known_primes:
+      nod = n_over_d(1, j, b=i)
+      if nod['alpha-tilde'] > 0:
+        primality = 'composite'
+        break
+    if primality == 'composite':
+      primality = 'indefinite'
+      continue
+    else:
+      new_primes.append(i)
+
+  print(f'A lista original era a seguinte: {known_primes}.')
+  print(f'Nesta sondagem foram encontrados os seguintes números primos: {new_primes}.')
+  known_primes = known_primes + new_primes
+
+  with open(DB_name, 'wb') as f:
+    pickle.dump(known_primes, f)
+
+  return known_primes
+----
+Explicação do Código:::
+Nas linhas 13 até 28, cuida-se de verificar se já existe um arquivo contendo uma lista prévia de primos ou cria-se um ao fim do código nas linhas 54 e 55, com o nome `+prime_database.pkl+`, caso ele não exista. Este autor usou a lista inicial `+[2,3,5,7,11,13,17,19,23]+` de 9 primos, mas o leitor pode utilizar uma lista maior desde que ela seja completa. O armazenamento é feito serializando-se a lista final de primos. Para isto, utilizamos a biblioteca `+Pickle+` da linguagem `+Python+`.
++
+As linhas 30 e 31 inicializam a variável `+known_primes+`, caso ela ainda não contenha uma lista de primos.
++
+As linhas 32 e 33, testam para ver se o argumento latexmath:[\large b] é menor que o último elemento da lista `+known_primes+`. Se for, o código simplesmente termina retornando a lista de todos os primos até latexmath:[\large b] já armazenados.
++
+As linhas 35 a 48 são as mais especiais. Elas passam por todos os inteiros que estiverem entre `+n1+` (o segundo inteiro após o último primo de `+known_primes+`, pois `+n1 - 1+` é par!) e latexmath:[\large b], inclusive, testando-os apenas contra os primos de `+known_primes+` para ver se algum destes inteiros são também primos, para, no fim, anexa-los a `+known_primes+`. O teste realizado aqui, é o teste do Teorema <<th-39>>. A linha 41, testa para ver se o número de restos do falso período é maior que zero, caso em que a negação do lado direito da dupla implicação da proposição do Teorema leva também à negação do seu lado esquerdo!, ou seja, o tamanho do falso período não é nulo e o número latexmath:[\large b] é composto.
++
+Por fim, as linhas 54 e 55 salvam a lista de primos contida em `+known_primes+` que agora, provavelmente, foi aumentada com os novos primos que estavam sendo coletados na lista temporária `+new_primes+`.
